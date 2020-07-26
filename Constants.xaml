@@ -20,7 +20,7 @@
     <FontFamily x:Key="SymbolFont">Fonts/segoeuisym.ttf#Segoe UI Symbol</FontFamily>
 
     <!-- Effectively the Accent Color: #AARRGGBB, #RRGGBB, & Web safe colors are accepted. -->
-    <Color x:Key="GlyphColor">#FF55CDFF</Color>
+    <Color x:Key="GlyphColor">#F3C443</Color>
     
     <!-- Currently Unused -->
     <Color x:Key="HighlightGlyphColor">#FFFF0000</Color>
@@ -67,10 +67,17 @@
     <SolidColorBrush x:Key="NegativeRatingBrush" Color="#ff6b6b" />
     <SolidColorBrush x:Key="MixedRatingBrush" Color="#fffca1" />
 
-    <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="#884D4D4D" />
+    <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="#80171717" />
+
+    <LinearGradientBrush x:Key="ExpanderBackgroundBrushOff" StartPoint="0.0,0.0" EndPoint="1.0,0.0">
+        <GradientStop Color="#80171717" Offset="0.0" />
+        <GradientStop Color="#00171717" Offset="1.0" />
+    </LinearGradientBrush>
 
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}"/>
-    
+
+    <SolidColorBrush x:Key="CoverHighlightSolid" Color="#40FFFFFF" />
+
     <LinearGradientBrush x:Key="CoverHighlightBrush" StartPoint="0.5,0.0" EndPoint="0.5,0.75" >
         <GradientStop Color="#40FFFFFF" Offset="0"/>
         <GradientStop Color="#00FFFFFF" Offset="1.0"/>

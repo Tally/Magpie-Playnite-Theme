@@ -23,6 +23,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Border.Style>
+
                         <DockPanel>
                             <Button HorizontalAlignment="Right" VerticalAlignment="Top"
                                     Content="r" FontFamily="Marlett"
@@ -99,6 +100,16 @@
                                 <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
                                               HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                                     <DockPanel>
+
+                                        <HtmlTextView Name="PART_HtmlDescription" DockPanel.Dock="Top"
+                                                      Margin="5,5,0,5"
+                                                      HtmlFontSize="{DynamicResource FontSize}"
+                                                      HtmlFontFamily="{DynamicResource FontFamily}"
+                                                      HtmlForeground="{DynamicResource TextColor}"
+                                                      LinkForeground="{DynamicResource GlyphColor}"                                      
+                                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+
                                         <StackPanel DockPanel.Dock="Top" Margin="5,0,0,0">
                                             <StackPanel.Resources>
                                                 <Style TargetType="ItemsControl">
@@ -186,15 +197,6 @@
                                                 <ItemsControl Name="PART_ItemsLinks" />
                                             </GridEx>
                                         </StackPanel>
-
-                                        <HtmlTextView Name="PART_HtmlDescription" DockPanel.Dock="Top"
-                                                      Margin="5,5,0,5"
-                                                      HtmlFontSize="{DynamicResource FontSize}"
-                                                      HtmlFontFamily="{DynamicResource FontFamily}"
-                                                      HtmlForeground="{DynamicResource TextColor}"
-                                                      LinkForeground="{DynamicResource GlyphColor}"                                      
-                                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                                     </DockPanel>
                                 </ScrollViewer>
                             </DockPanel>

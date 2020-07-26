@@ -48,7 +48,7 @@
                                                 Content="&#xE102;" FontFamily="Segoe UI Symbol" />
                                                 <Button Name="PART_ButtonInfo" Style="{StaticResource SimpleButton}"
                                                 Margin="4,0,4,0" VerticalAlignment="Center"
-                                                Content="&#x1f50e;" FontFamily="Segoe UI Symbol" />
+                                                Content="&#xE146;" FontFamily="Segoe UI Symbol" />
                                             </StackPanel>
                                         </Border>
                                     </Viewbox>
@@ -82,6 +82,9 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="BorderMouseOver"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="GameControls"/>
                         </Trigger>
+                        <DataTrigger Binding="{Settings GridViewDetailsPosition}" Value="Left">
+                            <Setter Property="Content" Value="&#xE145;" TargetName="PART_ButtonInfo" />
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
