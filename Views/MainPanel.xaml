@@ -31,8 +31,8 @@
                                   WindowChrome.IsHitTestVisibleInChrome="True"
                                          VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <Button Style="{StaticResource SimpleButton}"
-                                     Content="&#x2261;" FontFamily="Segoe UI Symbol" FontSize="40"
-                                     Margin="0,-14,0,-5" FontWeight="Bold" BorderThickness="0" />
+                                     Content="&#x2261;" FontFamily="Segoe UI Symbol" FontSize="42"
+                                     Margin="0,-18,0,-8" BorderThickness="0" />
                                 </Border>
                                 <SearchBox x:Name="PART_TextMainSearch"
                                         Margin="20,6,0,6" DockPanel.Dock="Left"
@@ -83,6 +83,14 @@
                                                     </ControlTemplate>
                                                 </Setter.Value>
                                             </Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+                                                </Trigger>
+                                            </Style.Triggers>
                                         </Style>
                                     </CheckBox.Style>
                                 </CheckBox>

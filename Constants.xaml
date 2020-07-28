@@ -12,7 +12,7 @@
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius">1</CornerRadius>
-    
+
     <!-- Also controls corners of associated borders. -->
     <CornerRadius x:Key="CoverCornerRadius">5</CornerRadius>
 
@@ -20,11 +20,12 @@
     <FontFamily x:Key="SymbolFont">Fonts/segoeuisym.ttf#Segoe UI Symbol</FontFamily>
 
     <!-- Effectively the Accent Color: #AARRGGBB, #RRGGBB, & Web safe colors are accepted. -->
-    <Color x:Key="GlyphColor">#F3C443</Color>
-    
+    <!-- For grey try: #A6A6A6, for gold try #F3C443, for default blue try #55CDFF -->
+    <Color x:Key="GlyphColor">#55CDFF</Color>
+
     <!-- Currently Unused -->
     <Color x:Key="HighlightGlyphColor">#FFFF0000</Color>
-    
+
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="TextColor">#f2f2f2</Color>
@@ -76,6 +77,7 @@
 
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}"/>
 
+    <!-- For a solid cover highlight, swap the keys of the below resources -->
     <SolidColorBrush x:Key="CoverHighlightSolid" Color="#40FFFFFF" />
 
     <LinearGradientBrush x:Key="CoverHighlightBrush" StartPoint="0.5,0.0" EndPoint="0.5,0.75" >

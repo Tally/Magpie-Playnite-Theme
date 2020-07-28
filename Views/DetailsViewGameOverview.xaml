@@ -67,7 +67,7 @@
                                             </Grid>
                                             <StackPanel Width="250" Orientation="Vertical" DockPanel.Dock="Left"
                                                         VerticalAlignment="Center" HorizontalAlignment="Stretch">
-                                            <TextBlock FontFamily="{DynamicResource FontFamily}"
+                                                <TextBlock FontFamily="{DynamicResource FontFamily}"
                                                         Text="{Binding Game.DisplayName}"
                                                         FontSize="{DynamicResource FontSizeLargest}"
                                                         TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"
@@ -78,10 +78,10 @@
                                                 <StackPanel HorizontalAlignment="Center"
                                                     Orientation="Horizontal" Margin="0,15,0,0">
                                                     <Button Name="PART_ButtonPlayAction"
-                                                    Width="100" Height="40" Margin="10,0,0,0"
+                                                    Width="120" Height="40" Margin="10,0,0,0"
                                                     Style="{DynamicResource PlayButton}" />
                                                     <Button Name="PART_ButtonContextAction" 
-                                                    Width="100" Height="40" />
+                                                    Width="120" Height="40" />
                                                     <Button Name="PART_ButtonMoreActions"
                                                     Content="&#xE10C;" FontFamily="Segoe UI Symbol"
                                                     Width="40" Height="40" Margin="10,0,0,0" />
@@ -94,7 +94,7 @@
                                     </Grid>
                                 </Border>
 
-                                <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-20,60,-20,0">
+                                <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,60,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>

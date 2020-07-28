@@ -36,5 +36,5 @@
                 <Setter Property="Background" Value="{DynamicResource HoverBrush}" />
             </Trigger>
         </Style.Triggers>
-    </Style>                  
+    </Style>
 </ResourceDictionary>
