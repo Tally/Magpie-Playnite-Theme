@@ -29,11 +29,11 @@
                             <Grid HorizontalAlignment="Stretch" Margin="20,0,20,0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Border Grid.Row="1" HorizontalAlignment="Center"
-                                        VerticalAlignment="Bottom" Background="{DynamicResource DetailsPanelBrush}"
+                                        VerticalAlignment="Top" Background="{DynamicResource DetailsPanelBrush}"
                                         CornerRadius="{DynamicResource CoverCornerRadius}" Padding="30">
                                     <Grid>
                                         <Border VerticalAlignment="Bottom" HorizontalAlignment="Left"
