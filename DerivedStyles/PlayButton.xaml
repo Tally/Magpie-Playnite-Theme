@@ -15,7 +15,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"  Background="{TemplateBinding Background}"
                                 Opacity="1" CornerRadius="{DynamicResource ControlCornerRadius}"/>
                         <StackPanel Orientation="Horizontal" TextBlock.FontWeight="Bold" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <TextBlock Text="&#xE102; " TextBlock.FontFamily="Segoe UI Symbol" />
+                            <TextBlock Text="&#xE102; " TextBlock.FontFamily="{DynamicResource SymbolFont}" />
                             <ContentPresenter RecognizesAccessKey="True"/>
                         </StackPanel>
                     </Grid>

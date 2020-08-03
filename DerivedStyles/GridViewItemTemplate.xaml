@@ -43,12 +43,12 @@
                                                 CornerRadius="{DynamicResource ControlCornerRadius}"
                                                 Margin="30,2,30,2">
                                             <StackPanel Orientation="Horizontal" Cursor="Hand">
-                                                <Button Name="PART_ButtonPlay" Style="{StaticResource SimpleButton}"
+                                                <Button Name="PART_ButtonPlay" Style="{DynamicResource GlyphButton}"
                                                 Margin="4,0,4,0" VerticalAlignment="Center"
-                                                Content="&#xE102;" FontFamily="Segoe UI Symbol" />
-                                                <Button Name="PART_ButtonInfo" Style="{StaticResource SimpleButton}"
+                                                Content="&#xE102;" FontFamily="{DynamicResource SymbolFont}" />
+                                                <Button Name="PART_ButtonInfo" Style="{DynamicResource GlyphButton}"
                                                 Margin="4,0,4,0" VerticalAlignment="Center"
-                                                Content="&#xE146;" FontFamily="Segoe UI Symbol" />
+                                                Content="&#xE146;" FontFamily="{DynamicResource SymbolFont}" />
                                             </StackPanel>
                                         </Border>
                                     </Viewbox>

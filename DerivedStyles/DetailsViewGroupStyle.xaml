@@ -12,36 +12,38 @@
                               ExpanderBehaviors.SaveState="True"
                               ExpanderBehaviors.SaveStateId="{Binding Name, Mode=OneWay}">
                         <Expander.Header>
-                            <Grid HorizontalAlignment="Stretch">
+                            <Grid HorizontalAlignment="Stretch" Margin="0">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
-                                <TextBlock Grid.Column="0" Foreground="{DynamicResource GlyphBrush}"
-                                           VerticalAlignment="Center" HorizontalAlignment="Left"
-                                           TextAlignment="Center" Margin="0,0,5,0" FontSize="{DynamicResource FontSizeLarge}"
-                                           Typography.Capitals="SmallCaps" TextBlock.FontWeight="SemiBold">
-                                        <TextBlock.Style>
-                                            <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
-                                                <Setter Property="Text" Value="{Binding Name, Converter={StaticResource ObjectToStringConverter}}" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Name, Converter={StaticResource ObjectToStringConverter}}" Value="{x:Null}">
-                                                        <Setter Property="Text" Value="{DynamicResource LOCNone}" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Name, Converter={StaticResource ObjectToStringConverter}}" Value="">
-                                                        <Setter Property="Text" Value="{DynamicResource LOCNone}" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat=({0})}"
+                                <TextBlock Grid.Column="0"
+                                    Foreground="{DynamicResource DetailsViewGroupTextBrush}"
+                                    VerticalAlignment="Center" HorizontalAlignment="Left"
+                                    TextAlignment="Center" Margin="0,0,5,0" FontSize="{DynamicResource FontSizeLarge}"
+                                    Typography.Capitals="SmallCaps" TextBlock.FontWeight="SemiBold">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                            <Setter Property="Text" Value="{Binding Name, Converter={StaticResource ObjectToStringConverter}}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Name, Converter={StaticResource ObjectToStringConverter}}" Value="{x:Null}">
+                                                    <Setter Property="Text" Value="{DynamicResource LOCNone}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Name, Converter={StaticResource ObjectToStringConverter}}" Value="">
+                                                    <Setter Property="Text" Value="{DynamicResource LOCNone}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock Grid.Column="1" Text="{Binding Items.Count, Mode=OneWay, StringFormat=({0})}"
+                                           Foreground="{DynamicResource DetailsViewGroupTextBrush}"
                                            VerticalAlignment="Center" HorizontalAlignment="Left"
                                            Style="{DynamicResource BaseTextBlockStyle}"
                                            DockPanel.Dock="Left" TextAlignment="Center"
-                                           Visibility="{Settings ShowGroupCount}"/>
-                                <Separator Grid.Column="1"/>
+                                           Visibility="{Settings ShowGroupCount}" Margin="0,0,5,0"/>
+                                <Separator Grid.Column="2" Opacity="{DynamicResource GroupSeparatorOpacity}" VerticalAlignment="Center"/>
                             </Grid>
                         </Expander.Header>
                         <ItemsPresenter />

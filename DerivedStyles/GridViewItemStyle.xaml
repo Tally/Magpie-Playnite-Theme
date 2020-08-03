@@ -35,7 +35,7 @@
                                    TextAlignment="Center" TextWrapping="Wrap"
                                    TextTrimming="WordEllipsis"
                                    VerticalAlignment="Center"
-                                   Padding="2,5,2,5" 
+                                   Padding="2,5,2,5" FontSize="{DynamicResource FontSizeLarge}"
                                    Width="{Settings GridItemWidth}" 
                                    Typography.Capitals="SmallCaps"
                                    Visibility="{Settings ShowNamesUnderCovers}"/>

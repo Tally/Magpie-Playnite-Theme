@@ -30,8 +30,8 @@
                                   DockPanel.Dock="Left" Margin="15,0,0,0" Cursor="Hand"
                                   WindowChrome.IsHitTestVisibleInChrome="True"
                                          VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Button Style="{StaticResource SimpleButton}"
-                                     Content="&#x2261;" FontFamily="Segoe UI Symbol" FontSize="42"
+                                    <Button Style="{DynamicResource GlyphButton}"
+                                     Content="&#x2261;" FontFamily="{DynamicResource SymbolFont}" FontSize="42"
                                      Margin="0,-18,0,-8" BorderThickness="0" />
                                 </Border>
                                 <SearchBox x:Name="PART_TextMainSearch"
@@ -44,7 +44,7 @@
                                     DockPanel.Dock="Left" Margin="10,6,0,6" Width="35"
                                     WindowChrome.IsHitTestVisibleInChrome="True">
                                     <Button Content="&#xE115;" FontSize="20"
-                                               FontFamily="Segoe UI Symbol" Style="{DynamicResource SimpleButton}"
+                                               FontFamily="{DynamicResource SymbolFont}" Style="{DynamicResource GlyphButton}"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Border>
 
@@ -60,7 +60,7 @@
                                                             Background="Transparent" Cursor="Hand">
                                                             <StackPanel Orientation="Horizontal" Margin="6,0,6,0">
                                                                 <TextBlock Text="&#xE16E; "
-                                                                       FontFamily="Segoe UI Symbol" FontSize="20"
+                                                                       FontFamily="{DynamicResource SymbolFont}" FontSize="20"
                                                                        VerticalAlignment="Center" HorizontalAlignment="Center"
                                                                        Foreground="{TemplateBinding Foreground}"
                                                                        Margin="0,-2,-4,1" />
@@ -106,7 +106,7 @@
                                                     <ControlTemplate>
                                                         <Border Background="Transparent">
                                                             <Grid>
-                                                                <TextBlock Text="&#x1f514;" FontFamily="Segoe UI Symbol" FontSize="24"
+                                                                <TextBlock Text="&#x1f514;" FontFamily="{DynamicResource SymbolFont}" FontSize="24"
                                                                        Foreground="{TemplateBinding Foreground}"
                                                                        HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
                                                                 <Border CornerRadius="3" Width="15" Height="15"
@@ -137,7 +137,7 @@
 
                                 <Button Name="PART_ButtonSteamFriends"
                                     Margin="15,6,5,6" DockPanel.Dock="Right"
-                                    Style="{DynamicResource SimpleButton}"
+                                    Style="{DynamicResource GlyphButton}"
                                     Background="Transparent" FontSize="24"
                                     Padding="0" BorderThickness="0"
                                     WindowChrome.IsHitTestVisibleInChrome="True"
