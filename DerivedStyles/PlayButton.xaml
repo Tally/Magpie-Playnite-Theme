@@ -3,7 +3,7 @@
 
     <Style x:Key="PlayButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{DynamicResource PlayButtonBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PlayBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="Padding" Value="10,5,10,5" />
@@ -15,7 +15,6 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"  Background="{TemplateBinding Background}"
                                 Opacity="1" CornerRadius="{DynamicResource ControlCornerRadius}"/>
                         <StackPanel Orientation="Horizontal" TextBlock.FontWeight="Bold" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <TextBlock Text="&#xE102; " TextBlock.FontFamily="{DynamicResource SymbolFont}" />
                             <ContentPresenter RecognizesAccessKey="True"/>
                         </StackPanel>
                     </Grid>
@@ -31,8 +30,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TextBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PlayButtonHighlightBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderHighlightBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

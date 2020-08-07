@@ -11,6 +11,7 @@
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
+    <sys:Double x:Key="ControlCornerRadiusDouble">2</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius">2</CornerRadius>
     <sys:Double x:Key="GroupSeparatorOpacity">1</sys:Double>
 
@@ -21,7 +22,7 @@
     <FontFamily x:Key="SymbolFont">segoeuisym.ttf#Segoe UI Symbol</FontFamily>
 
     <!-- Effectively the Accent Color: #AARRGGBB, #RRGGBB, & Web safe colors are accepted. -->
-    <!-- For grey try: #A6A6A6, for gold try #F3C443, Playnite Icon red is #FB1F51 for default blue try #55CDFF -->
+    <!-- For grey try: #A6A6A6, for gold try #FFD768, #EF424B, for blue try #4D8BAF -->
     <Color x:Key="GlyphColor">#55CDFF</Color>
 
     <!-- Currently Unused -->
@@ -40,8 +41,14 @@
     <Color x:Key="BackgroundToneColor">#171717</Color>
     <Color x:Key="GridItemBackgroundColor">#636363</Color>
     <Color x:Key="PanelSeparatorColor">#2B2B2B</Color>
+    <Color x:Key="PlayButtonColor">#4BC937</Color>
+    <Color x:Key="PlayButtonHighlightColor">#6AD959</Color>
+    <Color x:Key="InstallButtonColor">#3F47A8</Color>
+    <Color x:Key="InstallButtonHighlightColor">#5C63BB</Color>
     <Color x:Key="PanelBackgroundColor">#191919</Color>
-    <Color x:Key="DetailsButtonBackGround">#626262</Color>
+    <Color x:Key="NormalBorderColor">#535353</Color>
+    <Color x:Key="ButtonBackgroundColor">#333333</Color>
+    <Color x:Key="DetailsButtonBackGround">#4D4D4D</Color>
 
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="Transparent" />
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
@@ -49,23 +56,33 @@
     <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
     <SolidColorBrush x:Key="NormalBrush" Color="{DynamicResource MainColor}" />
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDark}" />
-    <SolidColorBrush x:Key="NormalBorderBrush" Color="#535353" />
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource NormalBorderColor}" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource HoverColor}" />
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
     <SolidColorBrush x:Key="PopupBorderBrush" Color="{DynamicResource PopupBorderColor}" />
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource BackgroundToneColor}" />
-    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#171717" />
-    <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity=".5 "/>
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}" />
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{DynamicResource NormalBorderColor}" />
+    <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity=".7 "/>
     <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity=".5"/>
     <SolidColorBrush x:Key="PanelBackgroundBrush" Color="{DynamicResource PanelBackgroundColor}" Opacity=".5" />
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
-    <SolidColorBrush x:Key="DetailsPanelBrush" Color="{DynamicResource PanelBackgroundColor}" Opacity=".5" />
-    <SolidColorBrush x:Key="PlayButtonBrush" Color="#19B14E" />
-    <SolidColorBrush x:Key="PlayBorderBrush" Color="#C1FFCB" />
+    <SolidColorBrush x:Key="DetailsPanelBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity=".5" />
+    <SolidColorBrush x:Key="PlayButtonBrush" Color="{DynamicResource PlayButtonColor}" Opacity=".7" />
+    <SolidColorBrush x:Key="PlayBorderBrush" Color="{DynamicResource PlayButtonColor}" Opacity="1" />
+    <SolidColorBrush x:Key="PlayButtonHighlightBrush" Color="{DynamicResource PlayButtonHighlightColor}" />
+    <SolidColorBrush x:Key="PlayBorderHighlightBrush" Color="{DynamicResource PlayButtonHighlightColor}" />
+    <SolidColorBrush x:Key="InstallButtonBrush" Color="{DynamicResource InstallButtonColor}" />
+    <SolidColorBrush x:Key="InstallBorderBrush" Color="{DynamicResource InstallButtonColor}" />
+    <SolidColorBrush x:Key="InstallButtonHighlightBrush" Color="{DynamicResource InstallButtonColor}" />
+    <SolidColorBrush x:Key="InstallBorderHighlightBrush" Color="{DynamicResource InstallButtonColor}" />
     <SolidColorBrush x:Key="TitlebarBrush" Color="{DynamicResource PanelBackgroundColor}" Opacity="1"/>
     <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="{DynamicResource MainColorDark}" />
     <SolidColorBrush x:Key="DetailsButtonBrush" Color="{DynamicResource DetailsButtonBackGround}" Opacity=".7"/>
+    <SolidColorBrush x:Key="DetailsButtonBorderBrush" Color="{DynamicResource DetailsButtonBackGround}" Opacity="1"/>
+    <SolidColorBrush x:Key="DetailHighlightBrush" Color="#A6A6A6" Opacity=".7"/>
+    <SolidColorBrush x:Key="DetailHighlightBorderBrush" Color="#A6A6A6" Opacity="1"/>
     <SolidColorBrush x:Key="DetailsViewGroupTextBrush" Color="{DynamicResource GlyphColor}" />
 
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />

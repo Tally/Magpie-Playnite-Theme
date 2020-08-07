@@ -68,36 +68,19 @@
                                     </TextBlock>
                                 </DockPanel>
 
-                                <Grid DockPanel.Dock="Top" Margin="0,10,0,10" Background="Transparent" Width="Auto" HorizontalAlignment="Center">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="170" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Button Name="PART_ButtonPlayAction" Grid.Column="0"
-                                            Margin="50,0,0,0" Height="40" Width="120" Style="{DynamicResource PlayButton}" />
-                                    <Button Name="PART_ButtonContextAction" Margin="50,0,0,0"
-                                            Height="40" Width="120"  Grid.Column="0"/>
-                                    <Button Name="PART_ButtonMoreActions"
+                                <StackPanel Orientation="Horizontal" Margin="50,10,0,10" DockPanel.Dock="Top"
+                                            Background="Transparent" HorizontalAlignment="Center">
+                                    <Button Name="PART_ButtonPlayAction" Margin="0"
+                                            MinHeight="40" Width="120" Style="{DynamicResource DetailsPlayButton}" />
+                                    <Button Name="PART_ButtonContextAction" Margin="50,0,0,0" Style="{DynamicResource PanelButton}"
+                                            MinHeight="40" Width="120"  Grid.Column="0"/>
+                                    <Button Name="PART_ButtonMoreActions" Style="{DynamicResource PanelButton}"
                                             Content="&#xE10C;" FontFamily="{DynamicResource SymbolFont}"
-                                            Height="40" Width="40" Grid.Column="1" Margin="10,0,0,0" />
-                                    <Button x:Name="PART_ButtonEditGame" Grid.Column="2"
-                                            Margin="10,0,5,0" Height="40" Focusable="False"
-                                            Content="&#xeded;" FontFamily="{DynamicResource FontIcoFont}">
-                                        <Button.Style>
-                                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-                                                <Setter Property="Visibility" Value="Hidden" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}"  Value="True">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Button.Style>
-                                    </Button>
-                                </Grid>
-
-
+                                            MinHeight="40" Grid.Column="1" Margin="10,0,0,0" />
+                                    <Button x:Name="PART_ButtonEditGame" Style="{DynamicResource DetailsEditButton}"
+                                            Margin="10,0,10,0" MinHeight="40" MinWidth="40" Focusable="False"
+                                            Content="&#xeded;" FontFamily="{DynamicResource FontIcoFont}"/>
+                                </StackPanel>
 
                                 <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
                                               HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">

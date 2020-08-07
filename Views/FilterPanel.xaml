@@ -24,16 +24,20 @@
                             </Style>
                         </Border.Style>
                         <DockPanel Background="{DynamicResource PanelBackgroundBrush}">
-                            <DockPanel Margin="10,8,5,12" DockPanel.Dock="Top">
+                            <Grid Margin="10,8,5,12" DockPanel.Dock="Top">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
                                 <Button Content="r" FontFamily="Marlett"
                                         Style="{StaticResource SimpleButton}"
-                                        DockPanel.Dock="Right" Margin="0,0,5,0"
+                                        Grid.Column="1" Margin="0,0,5,0"
                                         Name="PART_ButtonClose"/>
-                                <Button DockPanel.Dock="Left" Content="{StaticResource LOCClearFilters}"                                        
-                                        HorizontalAlignment="Left"
-                                        Style="{StaticResource SimpleButton}"
+                                <Button Grid.Column="0" Content="{StaticResource LOCClearFilters}"                                        
+                                        HorizontalAlignment="Stretch" Margin="36,0,20,0"
+                                        Style="{DynamicResource DetailsButton}" FontSize="{DynamicResource FontSize}"
                                         Name="PART_ButtonClear"/>
-                            </DockPanel>
+                            </Grid>
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
                                       DockPanel.Dock="Top" Padding="0,0,0,15">
                                 <StackPanel>

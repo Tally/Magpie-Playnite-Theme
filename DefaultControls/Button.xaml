@@ -9,7 +9,7 @@
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Padding" Value="10,5,10,5" />
@@ -17,14 +17,14 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="Border" Cursor="Hand" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
-                            CornerRadius="{DynamicResource ControlCornerRadius}" Style="{DynamicResource HighlightBorder}">
+                            CornerRadius="{DynamicResource ControlCornerRadius}" Style="{DynamicResource HighlightBorder}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" TargetName="Border" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -32,9 +32,79 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                <Setter Property="Background" Value="{DynamicResource HoverBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource HoverBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
             </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="PanelButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Background" Value="{DynamicResource DetailsButtonBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DetailsButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Padding" Value="10,5,10,5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border" Cursor="Hand" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                            CornerRadius="{DynamicResource ControlCornerRadius}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource DetailHighlightBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DetailHighlightBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource DetailHighlightBorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailsButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+    
+    <Style x:Key="DetailsPlayButton" TargetType="Button" BasedOn="{StaticResource DetailsButton}">
+        <Setter Property="MinWidth" Value="120"/>
+        <Setter Property="Padding" Value="30,5,30,5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource PlayButtonBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderBrush}"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailsEditButton" TargetType="Button" BasedOn="{StaticResource DetailsButton}">
+        <Setter Property="Margin" Value="0,-5,-5,0" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Content" Value="&#xeded;"/>
+        <Setter Property="FontFamily" Value="{DynamicResource FontIcoFont}"/>
+        <Setter Property="Visibility" Value="Hidden" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=StackPanel}}"  Value="True">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
         </Style.Triggers>
     </Style>
 </ResourceDictionary>
