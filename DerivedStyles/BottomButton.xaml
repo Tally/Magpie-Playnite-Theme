@@ -5,9 +5,9 @@
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="15,8,15,8" />
         <Setter Property="MinWidth" Value="70" />
-        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonEmphaticBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonEmphaticBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -30,7 +30,7 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
                 <Setter Property="Background" Value="{DynamicResource HoverBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource HoverBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource HoverBorderBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
