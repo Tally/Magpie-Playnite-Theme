@@ -171,14 +171,21 @@
                                                 <ItemsControl Name="PART_ItemsLinks" />
                                             </GridEx>
                                         </StackPanel>
-                                        <HtmlTextView Name="PART_HtmlDescription" DockPanel.Dock="Top"
+                                        <HtmlTextView DockPanel.Dock="Top"
                                                       Margin="5,5,0,5"
                                                       HtmlFontSize="{DynamicResource FontSize}"
                                                       HtmlFontFamily="{DynamicResource FontFamily}"
                                                       HtmlForeground="{DynamicResource TextColor}"
                                                       LinkForeground="{DynamicResource GlyphColor}"                                      
                                                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                            <HtmlTextView.HtmlText>
+                                                <MultiBinding StringFormat="{}{0}{1}">
+                                                    <Binding Path="null" FallbackValue="{}&lt;style&gt;img{max-width:100%;}&lt;/style&gt;"/>
+                                                    <Binding Path="Game.Description"/>
+                                                </MultiBinding>
+                                            </HtmlTextView.HtmlText>
+                                        </HtmlTextView>
                                     </DockPanel>
                                 </ScrollViewer>
                             </DockPanel>

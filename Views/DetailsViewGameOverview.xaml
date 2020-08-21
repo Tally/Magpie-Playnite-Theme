@@ -214,13 +214,20 @@
                                             </StackPanel>
                                             <StackPanel Name="PART_ElemDescription"
                                                 Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Margin="0">
-                                                <HtmlTextView x:Name="PART_HtmlDescription" Margin="20,20,25,20"
+                                                <HtmlTextView Margin="20,20,25,20"
                                                         HtmlFontSize="{DynamicResource FontSize}"
                                                         HtmlFontFamily="{DynamicResource FontFamily}"
                                                         HtmlForeground="{DynamicResource TextColor}"
                                                         LinkForeground="{DynamicResource GlyphColor}"                                      
                                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                        ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                                        ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                                    <HtmlTextView.HtmlText>
+                                                        <MultiBinding StringFormat="{}{0}{1}">
+                                                            <Binding Path="null" FallbackValue="{}&lt;style&gt;img{max-width:100%;}&lt;/style&gt;"/>
+                                                            <Binding Path="Game.Description"/>
+                                                        </MultiBinding>
+                                                    </HtmlTextView.HtmlText>
+                                                </HtmlTextView>
                                             </StackPanel>
                                         </Grid>
                                     </ScrollViewer>
