@@ -16,7 +16,7 @@
     <sys:Double x:Key="GroupSeparatorOpacity">1</sys:Double>
 
     <!-- Also controls corners of associated borders. -->
-    <CornerRadius x:Key="CoverCornerRadius">5</CornerRadius>
+    <CornerRadius x:Key="CoverCornerRadius">3</CornerRadius>
 
     <!-- Not currently functioning; hopefully you have this font installed already. -->
     <FontFamily x:Key="SymbolFont">segoeuisym.ttf#Segoe UI Symbol</FontFamily>
