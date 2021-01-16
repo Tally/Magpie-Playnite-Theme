@@ -25,6 +25,15 @@
                         </Border.Style>
 
                         <DockPanel>
+                            <TextBlock Name="LogoPath" Visibility="Collapsed">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}{1}{2}">
+                                        <Binding Source="..\..\..\..\library\files\"/>
+                                        <Binding Path="Game.Id"/>
+                                        <Binding Source="\logo.png"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
                             <Button HorizontalAlignment="Right" VerticalAlignment="Top"
                                     Content="r" FontFamily="Marlett"
                                     Style="{DynamicResource SimpleButton}"
@@ -56,36 +65,115 @@
                                         </Style.Triggers>
                                     </Style>
                                 </DockPanel.Style>
-
-                                <DockPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
-                                    <Image Name="PART_ImageIcon" DockPanel.Dock="Left" MaxHeight="32" MaxWidth="32"
+                                <Grid DockPanel.Dock="Top" Height="260">
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                        Name="LogoImage" Source="{Binding ElementName=LogoPath, Path=Text}"
+                                        RenderOptions.BitmapScalingMode="Fant" MaxWidth="640" MaxHeight="240"
+                                        Margin="20"/>
+                                    <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Name="PART_ImageIcon" DockPanel.Dock="Left" MaxHeight="32" MaxWidth="32"
                                            RenderOptions.BitmapScalingMode="Fant" Margin="0,0,10,0" />
-                                    <TextBlock Text="{Binding Game.DisplayName}" FontSize="{DynamicResource FontSizeLarger}"
+                                        <TextBlock Text="{Binding Game.DisplayName}" FontSize="{DynamicResource FontSizeLargest}"
                                                TextWrapping="Wrap" DockPanel.Dock="Left"
                                                VerticalAlignment="Center" Foreground="{DynamicResource TextBrush}"
                                                FontWeight="SemiBold" Width="Auto"
                                                Typography.Capitals="SmallCaps">
-                                    </TextBlock>
-                                </DockPanel>
+                                        </TextBlock>
+                                        <DockPanel.Resources>
+                                            <Style TargetType="DockPanel">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=LogoImage, Path=Source}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DockPanel.Resources>
+                                    </DockPanel>
+                                </Grid>
 
                                 <StackPanel Orientation="Horizontal" Margin="50,10,0,10" DockPanel.Dock="Top"
                                             Background="Transparent" HorizontalAlignment="Center">
                                     <Button Name="PART_ButtonPlayAction" Margin="0"
-                                            MinHeight="40" Width="120" Style="{DynamicResource DetailsPlayButton}" />
-                                    <Button Name="PART_ButtonContextAction" Margin="50,0,0,0" Style="{DynamicResource PanelButton}"
+                                            MinHeight="40" Width="120" Style="{DynamicResource PanelPlayButton}" />
+                                    <Button Name="PART_ButtonContextAction" Margin="50,0,0,0" Style="{DynamicResource PanelContextButton}"
                                             MinHeight="40" Width="120"  Grid.Column="0"/>
+                                    <StackPanel Tag="{DynamicResource Htlb_HasData}">
+                                        <StackPanel.Style>
+                                            <Style>
+                                                <Setter Property="Control.Visibility" Value="Visible" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                        <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+
+                                        <Button Name="PART_HltbCustomButton" Content="&#x23f3;" FontFamily="{DynamicResource SymbolFont}"
+                                                    Margin="10,0,0,0"  Style="{DynamicResource PanelButton}"/>
+                                    </StackPanel>
+                                    <StackPanel Tag="{DynamicResource Sc_HasData}">
+                                        <StackPanel.Style>
+                                            <Style>
+                                                <Setter Property="Control.Visibility" Value="Visible" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                        <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                        <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+
+                                        <Button Name="PART_ScCustomButton" Content="&#x1F3C6;" FontFamily="{DynamicResource SymbolFont}"
+                                                    Margin="10,0,0,0"  Style="{DynamicResource PanelButton}"/>
+                                    </StackPanel>
                                     <Button Name="PART_ButtonMoreActions" Style="{DynamicResource PanelButton}"
                                             Content="&#xE10C;" FontFamily="{DynamicResource SymbolFont}"
                                             MinHeight="40" Grid.Column="1" Margin="10,0,0,0" />
-                                    <Button x:Name="PART_ButtonEditGame" Style="{DynamicResource DetailsEditButton}"
+                                    <Button x:Name="PART_ButtonEditGame" Style="{DynamicResource PanelEditButton}"
                                             Margin="10,0,10,0" MinHeight="40" MinWidth="40" Focusable="False"
-                                            Content="&#xeded;" FontFamily="{DynamicResource FontIcoFont}"/>
+                                            Content="&#xE104;" FontFamily="{DynamicResource SymbolFont}"/>
                                 </StackPanel>
 
                                 <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
                                               HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                                    <DockPanel>
-                                        <StackPanel DockPanel.Dock="Top" Margin="5,0,0,0">
+                                    <ScrollViewer.OpacityMask>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Offset="0" Color="Transparent"/>
+                                                <GradientStop Offset="0.01" Color="White"/>
+                                                <GradientStop Offset="0.99" Color="White"/>
+                                                <GradientStop Offset="1" Color="Transparent"/>
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </ScrollViewer.OpacityMask>
+                                    <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                                        <StackPanel Tag="{DynamicResource Sc_HasData}" >
+                                            <StackPanel.Style>
+                                                <Style>
+                                                    <Setter Property="Control.Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </StackPanel.Style>
+                                            <StackPanel Name="PART_Achievements_ListComptact" Margin="20"/>
+                                        </StackPanel>
+                                        <HtmlTextView Name="PART_HtmlDescription"
+                                                      Margin="5,5,0,5"
+                                                      HtmlFontSize="{DynamicResource FontSize}"
+                                                      HtmlFontFamily="{DynamicResource FontFamily}"
+                                                      HtmlForeground="{DynamicResource TextColor}"
+                                                      LinkForeground="{DynamicResource GlyphColor}"                                      
+                                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                                        <StackPanel>
                                             <StackPanel.Resources>
                                                 <Style TargetType="ItemsControl">
                                                     <Setter Property="VerticalAlignment" Value="Center" />
@@ -171,15 +259,7 @@
                                                 <ItemsControl Name="PART_ItemsLinks" />
                                             </GridEx>
                                         </StackPanel>
-                                        <HtmlTextView DockPanel.Dock="Top" Name="PART_HtmlDescription"
-                                                      Margin="5,5,0,5"
-                                                      HtmlFontSize="{DynamicResource FontSize}"
-                                                      HtmlFontFamily="{DynamicResource FontFamily}"
-                                                      HtmlForeground="{DynamicResource TextColor}"
-                                                      LinkForeground="{DynamicResource GlyphColor}"                                      
-                                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                      ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-                                    </DockPanel>
+                                    </StackPanel>
                                 </ScrollViewer>
                             </DockPanel>
                         </DockPanel>

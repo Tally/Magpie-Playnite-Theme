@@ -39,16 +39,17 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="PanelButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Background" Value="{DynamicResource DetailsButtonBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DetailsButtonBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PanelButtonBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="MinWidth" Value="40" />
-        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Height" Value="40" />
         <Setter Property="Padding" Value="10,5,10,5" />
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -60,7 +61,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource DetailHighlightBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonHoverBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -68,24 +69,23 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DetailHighlightBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource DetailHighlightBorderBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource PanelButtonHoverBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonHoverBorderBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="DetailsButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
-        <Setter Property="Padding" Value="5"/>
-    </Style>
-    
-    <Style x:Key="DetailsPlayButton" TargetType="Button" BasedOn="{StaticResource DetailsButton}">
+    <Style x:Key="PanelPlayButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
         <Setter Property="MinWidth" Value="120"/>
         <Setter Property="Padding" Value="30,5,30,5"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PanelButtonHoverBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonBorderBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
                 <Setter Property="Background" Value="{DynamicResource PlayButtonBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderBrush}"/>
             </Trigger>
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
@@ -93,8 +93,26 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    <Style x:Key="PanelContextButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
+        <Setter Property="MinWidth" Value="120"/>
+        <Setter Property="Padding" Value="30,5,30,5"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PanelButtonHoverBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonBorderBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource ContextButtonBrush}"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource ContextBorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
-    <Style x:Key="DetailsEditButton" TargetType="Button" BasedOn="{StaticResource DetailsButton}">
+    <Style x:Key="PanelEditButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
         <Setter Property="Margin" Value="0,-5,-5,0" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Focusable" Value="False"/>

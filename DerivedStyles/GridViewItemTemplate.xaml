@@ -14,13 +14,6 @@
                             <Border BorderThickness="0" >
                                 <Grid Width="{Settings GridItemWidth}"
                                     Height="{Settings GridItemHeight}">
-                                    <Border Name="Mask"
-                                    Background="White"
-                                    CornerRadius="{DynamicResource CoverCornerRadius}">
-                                        <Border.CacheMode>
-                                            <BitmapCache RenderAtScale="2" />
-                                        </Border.CacheMode>
-                                    </Border>
                                     <Image Name="PART_ImageCover"
                                          RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                          HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -38,7 +31,7 @@
                                                 x:Name="BorderUninstalled" Visibility="Collapsed"/>
                                     <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                          Name="GameControls"  Visibility="Collapsed">
-                                        <Border Background="{DynamicResource PanelBackgroundBrush}"
+                                        <Border Background="{DynamicResource CoverOverlayBackgroundBrush}"
                                                 BorderThickness="0"
                                                 CornerRadius="{DynamicResource ControlCornerRadius}"
                                                 Margin="30,2,30,2">
@@ -53,7 +46,18 @@
                                         </Border>
                                     </Viewbox>
                                     <Grid.OpacityMask>
-                                        <VisualBrush Visual="{Binding ElementName=Mask}" />
+                                        <DrawingBrush>
+                                            <DrawingBrush.Drawing>
+                                                <GeometryDrawing Brush="White">
+                                                    <GeometryDrawing.Geometry>
+                                                        <RectangleGeometry 
+                                                         Rect="0,0,2,3"
+                                                         RadiusX=".05"
+                                                         RadiusY=".05" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingBrush.Drawing>
+                                        </DrawingBrush>
                                     </Grid.OpacityMask>
                                 </Grid>
                             </Border>

@@ -15,19 +15,29 @@
                         <StackPanel Orientation="Vertical">
                             <Border x:Name="SelectionBorder"
                                 BorderThickness="{Settings GridItemMargin}"
-                                CornerRadius="{DynamicResource CoverCornerRadius}"
                                 BorderBrush="{DynamicResource GridItemBackgroundBrush}"
                                 Background="{DynamicResource GridItemBackgroundBrush}">
                                 <ContentPresenter />
+                                <Border.OpacityMask>
+                                    <DrawingBrush>
+                                        <DrawingBrush.Drawing>
+                                            <GeometryDrawing Brush="White">
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry 
+                                                         Rect="0,0,2,3"
+                                                         RadiusX="0.05"
+                                                         RadiusY="0.05" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingBrush.Drawing>
+                                    </DrawingBrush>
+                                </Border.OpacityMask>
                                 <Border.Effect>
                                     <DropShadowEffect ShadowDepth="0"
                                               Color="Black"
                                               Opacity=".5"
                                               BlurRadius="10"/>
                                 </Border.Effect>
-                                <Border.CacheMode>
-                                    <BitmapCache />
-                                </Border.CacheMode>
                             </Border>
                             <Border MaxHeight="60">
                                 <TextBlock Text="{Binding DisplayName}"

@@ -35,7 +35,7 @@
                                         Name="PART_ButtonClose"/>
                                 <Button Grid.Column="0" Content="{StaticResource LOCClearFilters}"                                        
                                         HorizontalAlignment="Stretch" Margin="36,0,20,0"
-                                        Style="{DynamicResource DetailsButton}" FontSize="{DynamicResource FontSize}"
+                                        Style="{DynamicResource PanelButton}" FontSize="{DynamicResource FontSize}"
                                         Name="PART_ButtonClear"/>
                             </Grid>
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
