@@ -94,10 +94,8 @@
 
                                 <StackPanel Orientation="Horizontal" Margin="50,10,0,10" DockPanel.Dock="Top"
                                             Background="Transparent" HorizontalAlignment="Center">
-                                    <Button Name="PART_ButtonPlayAction" Margin="0"
-                                            MinHeight="40" Width="120" Style="{DynamicResource PanelPlayButton}" />
-                                    <Button Name="PART_ButtonContextAction" Margin="50,0,0,0" Style="{DynamicResource PanelContextButton}"
-                                            MinHeight="40" Width="120"  Grid.Column="0"/>
+                                    <Button Name="PART_ButtonPlayAction" Style="{DynamicResource PanelPlayButton}" />
+                                    <Button Name="PART_ButtonContextAction" Style="{DynamicResource PanelContextButton}" />
                                     <StackPanel Tag="{DynamicResource Htlb_HasData}">
                                         <StackPanel.Style>
                                             <Style>

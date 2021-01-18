@@ -15,11 +15,11 @@
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="TextColor">#f2f2f2</Color>
-    <Color x:Key="TextColorDarker">#A3A3A3</Color>
+    <Color x:Key="TextColorDarker">#cacaca</Color>
     <Color x:Key="TextColorDark">#FF000000</Color>
-    <Color x:Key="MainColor">#4D4D4D</Color>
-    <Color x:Key="MainColorDark">#171717</Color>
-    <Color x:Key="HoverColor">#7A7A7A</Color>
+    <Color x:Key="MainColor">#2b2b2b</Color>
+    <Color x:Key="MainColorDark">#121212</Color>
+    <Color x:Key="HoverColor">#373737</Color>
     <Color x:Key="GlyphColor">#62c3df</Color>
     <Color x:Key="HighlightGlyphColor">#FFFF0000</Color>
     <Color x:Key="PopupBackgroundColor">#121212</Color>
@@ -27,15 +27,15 @@
     <Color x:Key="NormalBorderColor">#282828</Color>
     <Color x:Key="BackgroundToneColor">#202020</Color>
     <Color x:Key="GridItemBackgroundColor">#636363</Color>
-    <Color x:Key="PanelSeparatorColor">#4d4d4d</Color>
+    <Color x:Key="PanelSeparatorColor">#282828</Color>
 
-    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}" Opacity="1" />
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
     <SolidColorBrush x:Key="TextBrushDarker" Color="{DynamicResource TextColorDarker}" />
     <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
     <SolidColorBrush x:Key="NormalBrush" Color="{DynamicResource MainColor}" />
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDark}" />
-    <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource NormalBorderColor}" />
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource NormalBorderColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource HoverColor}" />
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
@@ -43,7 +43,7 @@
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource BackgroundToneColor}" />
     <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}" />
     <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity=".7 "/>
-    <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="0.5"/>
+    <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="0.7"/>
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
 
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
@@ -59,15 +59,10 @@
     
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}"/>
 
-    <LinearGradientBrush x:Key="ExpanderBackgroundBrushOff" StartPoint="0.0,0.0" EndPoint="1.0,0.0">
-        <GradientStop Color="#804D4D4D" Offset="0.0" />
-        <GradientStop Color="#004D4D4D" Offset="1.0" />
-    </LinearGradientBrush>
-
     <!-- Some ideas for custom glyph colors:
     For grey try: #A6A6A6,
-    for gold try #FFD768, #EF424B,
-    for blue try #4D8BAF -->
+    for gold try #FFD768,
+    for blue try #448B9F -->
     
     <!-- Magpie-Specific Variables-->
     <sys:Double x:Key="ControlCornerRadiusDouble">2</sys:Double>
@@ -77,17 +72,18 @@
 
     <!-- Magpie-Specific Colors -->
     <Color x:Key="PanelBackgroundColor">#121212</Color>
-    <Color x:Key="ButtonBackgroundColor">#333333</Color>
+    <Color x:Key="ButtonBackgroundColor">#202020</Color>
     <Color x:Key="PanelButtonColor">#2b2b2b</Color>
     <Color x:Key="PanelButtonHoverColor">#4d4d4d</Color>
     <Color x:Key="PlayButtonColor">#4BC937</Color>
     <Color x:Key="PlayButtonHighlightColor">#6AD959</Color>
     <Color x:Key="ContextButtonColor">#385DA2</Color>
     <Color x:Key="ContextButtonHighlightColor">#5C63BB</Color>
+    <Color x:Key="ClearFilterButtonColor">#e34141</Color>
 
     <SolidColorBrush x:Key="CoverHighlightBrush" Color="#20FFFFFF" />
 
-    <SolidColorBrush x:Key="TitlebarBrush" Color="{DynamicResource PanelBackgroundColor}" Opacity="0.9"/>
+    <SolidColorBrush x:Key="TitlebarBrush" Color="{DynamicResource PanelBackgroundColor}" Opacity="0.7"/>
     <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="{DynamicResource MainColorDark}" />
     <SolidColorBrush x:Key="ButtonBorderBrush" Color="{DynamicResource ButtonBackgroundColor}" Opacity="0" />
     <SolidColorBrush x:Key="HoverBorderBrush" Color="{DynamicResource HoverColor}" Opacity="0" />
@@ -108,6 +104,7 @@
     <SolidColorBrush x:Key="ContextBorderBrush" Color="{DynamicResource ContextButtonColor}" Opacity="0" />
     <SolidColorBrush x:Key="ContextButtonHighlightBrush" Color="{DynamicResource ContextButtonColor}" />
     <SolidColorBrush x:Key="ContextBorderHighlightBrush" Color="{DynamicResource ContextButtonColor}" Opacity="0" />
+    <SolidColorBrush x:Key="ClearFilterButtonBrush" Color="{DynamicResource ClearFilterButtonColor}" />
     <SolidColorBrush x:Key="CoverOverlayBackgroundBrush" Color="{DynamicResource PanelBackgroundColor}" Opacity=".5" />
 
 </ResourceDictionary>

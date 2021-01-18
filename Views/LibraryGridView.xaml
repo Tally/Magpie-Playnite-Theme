@@ -26,25 +26,16 @@
                                              SelectionMode="Extended"
                                              DockPanel.Dock="Left" Background="Transparent"
                                              BorderThickness="0" Grid.RowSpan="2">
-                                <ExtendedListBox.Resources>
-                                    <Style TargetType="ScrollViewer" >
-                                        <Setter Property="OpacityMask" >
-                                            <Setter.Value>
-                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                    <LinearGradientBrush.GradientStops>
-                                                        <GradientStop Offset="0" Color="Transparent"/>
-                                                        <GradientStop Offset="0.01" Color="White"/>
-                                                        <GradientStop Offset="0.99" Color="White"/>
-                                                        <GradientStop Offset="1" Color="Transparent"/>
-                                                    </LinearGradientBrush.GradientStops>
-                                                </LinearGradientBrush>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                    <Style TargetType="ScrollBar" BasedOn="{StaticResource {x:Type ScrollBar}}">
-                                        <Setter Property="Margin" Value="0"/>
-                                    </Style>
-                                </ExtendedListBox.Resources>
+                                <ExtendedListBox.OpacityMask>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Offset="0" Color="Transparent"/>
+                                            <GradientStop Offset="0.01" Color="White"/>
+                                            <GradientStop Offset="0.99" Color="White"/>
+                                            <GradientStop Offset="1" Color="Transparent"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </ExtendedListBox.OpacityMask>
                                 <ExtendedListBox.ItemTemplate>
                                     <DataTemplate>
                                         <GameListItem Style="{StaticResource GridViewItemTemplate}" />
@@ -52,7 +43,7 @@
                                 </ExtendedListBox.ItemTemplate>
                             </ExtendedListBox>
                             <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1">
-                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1A3;" Foreground="{DynamicResource TextBrush}" Margin="10,0,10,0"/>
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xe12e;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
                                 <Border>
                                     <SliderWithPopup x:Name="PART_SliderZoom" />
                                 </Border>

@@ -34,8 +34,8 @@
                                         Grid.Column="1" Margin="0,0,5,0"
                                         Name="PART_ButtonClose"/>
                                 <Button Grid.Column="0" Content="{StaticResource LOCClearFilters}"                                        
-                                        HorizontalAlignment="Stretch" Margin="36,0,20,0"
-                                        Style="{DynamicResource PanelButton}" FontSize="{DynamicResource FontSize}"
+                                        HorizontalAlignment="Center"
+                                        Style="{DynamicResource ClearFilterButton}"
                                         Name="PART_ButtonClear"/>
                             </Grid>
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
@@ -64,12 +64,39 @@
                                         </Style>
                                         <Style TargetType="FilterSelectionBox">
                                             <Setter Property="Margin" Value="8,0,6,0" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type FilterSelectionBox}">
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="{DynamicResource ControlCornerRadius}">
+                                                            <ContentPresenter/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                         <Style TargetType="FilterEnumSelectionBox">
                                             <Setter Property="Margin" Value="8,0,6,0" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type FilterEnumSelectionBox}">
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="{DynamicResource ControlCornerRadius}">
+                                                            <ContentPresenter/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                         <Style TargetType="FilterStringSelectionBox">
                                             <Setter Property="Margin" Value="8,0,6,0" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type FilterStringSelectionBox}">
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="{DynamicResource ControlCornerRadius}">
+                                                            <ContentPresenter/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </StackPanel.Resources>
 
