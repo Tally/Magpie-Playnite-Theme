@@ -26,7 +26,7 @@
     <Color x:Key="PopupBorderColor">#2B2B2B</Color>
     <Color x:Key="NormalBorderColor">#282828</Color>
     <Color x:Key="BackgroundToneColor">#202020</Color>
-    <Color x:Key="GridItemBackgroundColor">#636363</Color>
+    <Color x:Key="GridItemBackgroundColor">#6c6c6c</Color>
     <Color x:Key="PanelSeparatorColor">#282828</Color>
 
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}" Opacity="1" />
@@ -62,7 +62,8 @@
     <!-- Some ideas for custom glyph colors:
     For grey try: #A6A6A6,
     for gold try #FFD768,
-    for blue try #448B9F -->
+    for red try #e34141,
+    for blue try #62c3df -->
     
     <!-- Magpie-Specific Variables-->
     <sys:Double x:Key="ControlCornerRadiusDouble">2</sys:Double>

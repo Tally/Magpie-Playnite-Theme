@@ -2,8 +2,9 @@ ThemeApiVersion: 1.9.0
 Id: Magpie_Desktop
 Name: Magpie
 Author: Dan Davis
-Version: 0.6.0
+Version: 0.7.0
 Constants:
+  - ControlCornerRadius: Rounding of controls and panels.
   - TitlebarBrush: Titlebar background.
   - PanelBackgroundBrush: Side panels.
   - DetailsPanelBrush: Center info panel in details view.

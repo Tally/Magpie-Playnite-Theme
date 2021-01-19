@@ -13,13 +13,29 @@
                           Margin="{Settings ItemSpacingMargin}"
                           x:Name="ItemGrid">
                         <StackPanel Orientation="Vertical">
-                            <Border x:Name="SelectionBorder"
-                                BorderThickness="{Settings GridItemMargin}"
+                            <Border x:Name="SelectionBorder" CornerRadius="{DynamicResource ControlCornerRadius}"
+                                Padding="{Settings GridItemMargin}"
                                 BorderBrush="{DynamicResource GridItemBackgroundBrush}"
                                 Background="{DynamicResource GridItemBackgroundBrush}">
-                                <ContentPresenter />
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.OpacityMask>
+                                        <DrawingBrush x:Name="CoverMask" RenderOptions.CachingHint="Cache">
+                                            <DrawingBrush.Drawing>
+                                                <GeometryDrawing Brush="White">
+                                                    <GeometryDrawing.Geometry>
+                                                        <RectangleGeometry 
+                                                         Rect="0,0,2,3"
+                                                         RadiusX="0.05"
+                                                         RadiusY="0.05" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingBrush.Drawing>
+                                        </DrawingBrush>
+                                    </Border.OpacityMask>
+                                </Border>
                                 <Border.OpacityMask>
-                                    <DrawingBrush>
+                                    <DrawingBrush RenderOptions.CachingHint="Cache">
                                         <DrawingBrush.Drawing>
                                             <GeometryDrawing Brush="White">
                                                 <GeometryDrawing.Geometry>
@@ -58,8 +74,8 @@
                             <Setter Property="BorderBrush" Value="Transparent" TargetName="SelectionBorder" />
                         </DataTrigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource TextBrush}" TargetName="SelectionBorder" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource TextBrush}" TargetName="SelectionBorder"/>
+                            <Setter Property="Background" Value="{DynamicResource TextBrushDarker}" TargetName="SelectionBorder" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource TextBrushDarker}" TargetName="SelectionBorder"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" TargetName="SelectionBorder"/>
