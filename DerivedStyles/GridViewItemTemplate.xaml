@@ -31,7 +31,7 @@
                                                 x:Name="BorderUninstalled" Visibility="Collapsed"/>
                                     <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                          Name="GameControls"  Visibility="Collapsed">
-                                        <Border Background="{DynamicResource CoverOverlayBackgroundBrush}"
+                                        <Border Background="{DynamicResource ControlBackgroundBrush}"
                                                 BorderThickness="0"
                                                 CornerRadius="{DynamicResource ControlCornerRadius}"
                                                 Margin="30,2,30,2">

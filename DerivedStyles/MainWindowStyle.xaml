@@ -21,7 +21,7 @@
                     </ControlTemplate.Resources>
                     <AdornerDecorator>
                         <Border x:Name="WindowBorder" BorderBrush="{DynamicResource PopupBorderBrush}" CornerRadius="0"
-                                BorderThickness="0"
+                                BorderThickness="1"
                                 Background="{TemplateBinding Background}">
                             <Grid>
                                 <ContentPresenter Margin="0,0,0,0"/>
@@ -36,8 +36,10 @@
                                         </StackPanel>
                                     </DockPanel>
                                 </DockPanel>
-                                <Border BorderBrush="{DynamicResource PopupBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                        Background="Transparent" CornerRadius="0" IsHitTestVisible="False"/>
+                                <Border BorderBrush="{DynamicResource PopupBorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Background="Transparent" CornerRadius="0" Margin="-1"
+                                        IsHitTestVisible="False" Visibility="Visible"/>
                             </Grid>
                         </Border>
                     </AdornerDecorator>

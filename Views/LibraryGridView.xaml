@@ -19,29 +19,46 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <ExtendedListBox x:Name="PART_ListGames" Padding="5"
+                            <ExtendedListBox x:Name="PART_ListGames" Padding="5,25,5,5"
                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                              ScrollViewer.PanningMode="VerticalOnly"
                                              ItemContainerStyle="{DynamicResource GridViewItemStyle}"
                                              SelectionMode="Extended"
                                              DockPanel.Dock="Left" Background="Transparent"
                                              BorderThickness="0" Grid.RowSpan="2">
-                                <ExtendedListBox.OpacityMask>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <LinearGradientBrush.GradientStops>
-                                            <GradientStop Offset="0" Color="Transparent"/>
-                                            <GradientStop Offset="0.01" Color="White"/>
-                                            <GradientStop Offset="0.99" Color="White"/>
-                                            <GradientStop Offset="1" Color="Transparent"/>
-                                        </LinearGradientBrush.GradientStops>
-                                    </LinearGradientBrush>
-                                </ExtendedListBox.OpacityMask>
                                 <ExtendedListBox.ItemTemplate>
                                     <DataTemplate>
                                         <GameListItem Style="{StaticResource GridViewItemTemplate}" />
                                     </DataTemplate>
                                 </ExtendedListBox.ItemTemplate>
+                                <ExtendedListBox.Resources>
+                                    <Style TargetType="ScrollBar" BasedOn="{StaticResource {x:Type ScrollBar}}">
+                                        <Setter Property="Margin" Value="0,20,0,20"/>
+                                    </Style>
+                                </ExtendedListBox.Resources>
+                                <ExtendedListBox.OpacityMask>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,20" MappingMode="Absolute">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Offset="0" Color="Transparent"/>
+                                            <GradientStop Offset="1" Color="White"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </ExtendedListBox.OpacityMask>
                             </ExtendedListBox>
+                            <TextBlock FontSize="{StaticResource FontSizeLarge}" Margin="0,40,0,0"
+                                       Text="{DynamicResource LOCNoItemsFound}" TextWrapping="Wrap"                                      
+                                       TextAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Items.Count, ElementName=PART_ListGames, Mode=OneWay}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                             <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1">
                                 <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xe12e;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
                                 <Border>

@@ -10,13 +10,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="Grid" Cursor="Hand">
-                        <Border x:Name="DefaultBorder" BorderBrush="{TemplateBinding BorderBrush}"
+                    <Grid x:Name="Grid">
+                        <Border x:Name="DefaultBorder" Cursor="Hand" BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"  Background="{TemplateBinding Background}"
                                 Opacity="1" CornerRadius="{DynamicResource ControlCornerRadius}"/>
-                        <StackPanel Orientation="Horizontal" TextBlock.FontWeight="Bold" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <ContentPresenter RecognizesAccessKey="True"/>
-                        </StackPanel>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"
+                                          Content="&#xE102;" TextBlock.FontFamily="{DynamicResource SymbolFont}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="True" />
@@ -30,8 +29,9 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
                 <Setter Property="Background" Value="{DynamicResource PlayButtonHighlightBrush}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderHighlightBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderHighlightBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

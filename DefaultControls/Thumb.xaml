@@ -13,7 +13,7 @@
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Grid>
                         <Rectangle x:Name="HoverRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                   Width="Auto" Height="Auto" RadiusX="5" RadiusY="5"
+                                   Width="Auto" Height="Auto" RadiusX="{DynamicResource ControlCornerRadiusDouble}" RadiusY="{DynamicResource ControlCornerRadiusDouble}"
                                    Stroke="{x:Null}" Margin="4.5,1,4.5,1" MinHeight="10"
                                    Fill="{TemplateBinding Background}" />
                     </Grid>

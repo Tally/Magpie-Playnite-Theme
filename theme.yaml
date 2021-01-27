@@ -2,9 +2,11 @@ ThemeApiVersion: 1.9.0
 Id: Magpie_Desktop
 Name: Magpie
 Author: Dan Davis
-Version: 0.7.0
+Version: 0.8.1
 Constants:
-  - ControlCornerRadius: Rounding of controls and panels.
+  - UseAbsoluteExtraMetadataPath: Use absolute path to your Playnite config folder.
+  - ExtraMetadataPath: That path; no ending backslash.
+  - TitleTextVisibility: Visibility of Title shown when logo not present.
   - TitlebarBrush: Titlebar background.
   - PanelBackgroundBrush: Side panels.
   - DetailsPanelBrush: Center info panel in details view.

@@ -35,11 +35,30 @@
                                         Name="PART_ButtonClose"/>
                                 <Button Grid.Column="0" Content="{StaticResource LOCClearFilters}"                                        
                                         HorizontalAlignment="Center"
-                                        Style="{DynamicResource ClearFilterButton}"
-                                        Name="PART_ButtonClear"/>
+                                        Name="PART_ButtonClear">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                            <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+                                            <Setter Property="Background" Value="{DynamicResource DetailsButtonBrush}" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource DetailsButtonBrush}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                                    <Setter Property="Background" Value="{DynamicResource ClearFilterButtonBrush}"/>
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource ClearFilterBorderBrush}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsFocused" Value="True">
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource ClearFilterBorderBrush}"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
                             </Grid>
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
-                                      DockPanel.Dock="Top" Padding="0,0,0,15">
+                                      DockPanel.Dock="Top" Padding="0,0,0,0">
                                 <StackPanel>
                                     <StackPanel.Resources>
                                         <Style x:Key="FilterCheck" TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">

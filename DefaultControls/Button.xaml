@@ -13,6 +13,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Padding" Value="10,5,10,5" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -24,7 +25,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource HoverBorderBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -34,108 +36,8 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
                 <Setter Property="Background" Value="{DynamicResource HoverBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource HoverBorderBrush}"/>
             </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="PanelButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Background" Value="{DynamicResource PanelButtonBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
-        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
-        <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}"/>
-        <Setter Property="MinWidth" Value="40" />
-        <Setter Property="MinHeight" Value="40" />
-        <Setter Property="Padding" Value="10,5,10,5" />
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="Border" Cursor="Hand" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
-                            CornerRadius="{DynamicResource ControlCornerRadius}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonHoverBrush}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource PanelButtonHoverBrush}"/>
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonHoverBorderBrush}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="EmphaticPanelButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
-        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource PanelButtonHoverBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PanelButtonBorderBrush}"/>
-        <Setter Property="Padding" Value="20,5,20,5"/>
-    </Style>
-    
-    <Style x:Key="PanelPlayButton" TargetType="Button" BasedOn="{StaticResource EmphaticPanelButton}">
-        <Setter Property="MinWidth" Value="120"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-                <Setter Property="Background" Value="{DynamicResource PlayButtonBrush}"/>
-            </Trigger>
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource PlayBorderBrush}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="PanelContextButton" TargetType="Button" BasedOn="{StaticResource EmphaticPanelButton}">
-        <Setter Property="MinWidth" Value="120"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-                <Setter Property="Background" Value="{DynamicResource ContextButtonBrush}"/>
-            </Trigger>
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource ContextBorderBrush}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="ClearFilterButton" TargetType="Button" BasedOn="{StaticResource EmphaticPanelButton}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-                <Setter Property="Background" Value="{DynamicResource ClearFilterButtonBrush}"/>
-            </Trigger>
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource ClearFilterButtonBrush}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="PanelEditButton" TargetType="Button" BasedOn="{StaticResource PanelButton}">
-        <Setter Property="Margin" Value="0,-5,-5,0" />
-        <Setter Property="Height" Value="40" />
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Content" Value="&#xeded;"/>
-        <Setter Property="FontFamily" Value="{DynamicResource FontIcoFont}"/>
-        <Setter Property="Visibility" Value="Hidden" />
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=StackPanel}}"  Value="True">
-                <Setter Property="Visibility" Value="Visible" />
-            </DataTrigger>
         </Style.Triggers>
     </Style>
 </ResourceDictionary>

@@ -2,16 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="DetailsViewGroupStyle" TargetType="{x:Type GroupItem}">
-        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+        <Setter Property="Foreground" Value="{DynamicResource DetailsViewGroupTextBrush}" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GroupItem}">
-                    <Expander BorderThickness="0" IsExpanded="True"
-                              ExpanderBehaviors.SaveState="True"
-                              ExpanderBehaviors.SaveStateId="{Binding Name, Mode=OneWay}">
-                        <Expander.Header>
+                    <ExpanderEx BorderThickness="0" SaveGameGroupId="{Binding Name, Mode=OneWay}"
+                                IsExpanded="True">
+                        <ExpanderEx.Header>
                             <Grid HorizontalAlignment="Stretch" Margin="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -19,9 +18,9 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0"
-                                    Foreground="{DynamicResource DetailsViewGroupTextBrush}"
+                                    Foreground="{TemplateBinding Foreground}"
                                     VerticalAlignment="Center" HorizontalAlignment="Left"
-                                    TextAlignment="Center" Margin="0,0,5,0" FontSize="{DynamicResource FontSizeLarge}"
+                                    TextAlignment="Center" Margin="0,0,5,0" FontSize="{TemplateBinding FontSize}"
                                     Typography.Capitals="SmallCaps" TextBlock.FontWeight="SemiBold">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
@@ -43,11 +42,11 @@
                                            Style="{DynamicResource BaseTextBlockStyle}"
                                            DockPanel.Dock="Left" TextAlignment="Center"
                                            Visibility="{Settings ShowGroupCount}" Margin="0,0,5,0"/>
-                                <Separator Grid.Column="2" Opacity="{DynamicResource GroupSeparatorOpacity}" VerticalAlignment="Center"/>
+                                <Separator Grid.Column="2" Background="{DynamicResource HoverBrush}" VerticalAlignment="Center"/>
                             </Grid>
-                        </Expander.Header>
+                        </ExpanderEx.Header>
                         <ItemsPresenter />
-                    </Expander>
+                    </ExpanderEx>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
