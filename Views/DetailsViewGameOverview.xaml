@@ -77,8 +77,10 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Name="LogoPath" Style="{DynamicResource ExtraMetadataLogoPath}" Tag="{DynamicResource ExtraMetadataPath}"/>
-                        <TextBlock Name="HeaderPath" Style="{DynamicResource ExtraMetaHeaderPath}"  Tag="{DynamicResource ExtraMetadataPath}"/>
+                        <TextBlock Name="LogoPath" Style="{DynamicResource ExtraMetadataLogoPath}"
+                                   Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}"/>
+                        <TextBlock Name="HeaderPath" Style="{DynamicResource ExtraMetaHeaderPath}" 
+                                   Visibility="Collapsed"  Tag="{DynamicResource ExtraMetadataPath}"/>
 
                         <ScrollViewer Grid.RowSpan="3" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                             <FadeImage x:Name="PART_ImageBackground" Stretch="Uniform"
@@ -498,7 +500,7 @@
                                                         <Image Name="PART_ImageIcon" Height="32" Width="32" SnapsToDevicePixels="True"
                                                                Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                                StretchDirection="DownOnly" RenderOptions.BitmapScalingMode="Fant"/>
-                                                        <TextBlock Text="About the Game" Foreground="{DynamicResource TextBrush}"
+                                                        <TextBlock Text="{DynamicResource AboutGameText}" Foreground="{DynamicResource TextBrush}"
                                                                    FontSize="{DynamicResource FontSizeLarger}" FontFamily="{DynamicResource FontFamily}"
                                                                    Typography.Capitals="SmallCaps" Visibility="Visible" FontWeight="SemiBold"
                                                                    VerticalAlignment="Center" Margin="10,0,10,0"/>

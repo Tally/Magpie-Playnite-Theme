@@ -389,7 +389,7 @@
                                                         <Image Name="PART_ImageIcon" Height="32" Width="32" SnapsToDevicePixels="True"
                                                                    Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                                    StretchDirection="DownOnly" RenderOptions.BitmapScalingMode="Fant"/>
-                                                        <TextBlock Text="About the Game" Foreground="{DynamicResource TextBrush}"
+                                                        <TextBlock Text="{DynamicResource AboutGameText}" Foreground="{DynamicResource TextBrush}"
                                                                FontSize="{DynamicResource FontSizeLarger}" FontFamily="{DynamicResource FontFamily}"
                                                                Typography.Capitals="SmallCaps" Visibility="Visible" FontWeight="SemiBold"
                                                                VerticalAlignment="Center" Margin="10,0,10,0"/>
