@@ -21,7 +21,7 @@
     <Color x:Key="MainColor">#2b2b2b</Color>
     <Color x:Key="MainColorDark">#202020</Color>
     <Color x:Key="HoverColor">#4d4d4d</Color>
-    <Color x:Key="GlyphColor">#62c3df</Color>
+    <Color x:Key="GlyphColor">#62C3DF</Color>
     <Color x:Key="HighlightGlyphColor">#FFFF0000</Color>
     <Color x:Key="PopupBackgroundColor">#121212</Color>
     <Color x:Key="PopupBorderColor">#2B2B2B</Color>
@@ -62,8 +62,9 @@
     <!-- Some ideas for custom glyph colors:
     For grey try: #A6A6A6,
     for gold try #FFD768,
-    for red try #e34141,
-    for blue try #62c3df -->
+    for salmon try #FF7A68,
+    for red try #E34141,
+    for blue try #62C3DF -->
     
     <!-- Magpie-Specific Variables-->
 
@@ -75,6 +76,7 @@
     <sys:Double x:Key="GroupSeparatorOpacity">1</sys:Double>
     <FontFamily x:Key="SymbolFont">segoeuisym.ttf#Segoe UI Symbol</FontFamily>
     <Visibility x:Key="TitleTextVisibility">Visible</Visibility>
+    <sys:Double x:Key="DetailsViewPanelWidth">1080</sys:Double>
     
     <!-- Magpie-Specific Colors -->
     <Color x:Key="ButtonBackgroundColor">#2b2b2b</Color>

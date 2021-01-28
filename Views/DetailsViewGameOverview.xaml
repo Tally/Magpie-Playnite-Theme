@@ -95,8 +95,8 @@
                                 </FadeImage.ImageOpacityMask>
                             </FadeImage>
                         </ScrollViewer>
-                        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
-                                    HorizontalAlignment="Center" Margin="0"
+                        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch" Margin="0"
                                     MaxWidth="1280" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*" />
@@ -108,8 +108,8 @@
                                 <RowDefinition Height="4*" />
                                 <RowDefinition Height="1*" />
                             </Grid.RowDefinitions>
-                            <Image Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Stretch="Uniform" StretchDirection="DownOnly" Visibility="Visible"
+                            <Image Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" Stretch="Uniform"
                                    Name="LogoImage" RenderOptions.BitmapScalingMode="Fant"
                                    Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
                                 <Image.Style>
@@ -166,7 +166,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Border.Style>
-                            <DockPanel MaxWidth="1080">
+                            <DockPanel MaxWidth="{DynamicResource DetailsViewPanelWidth}">
                                 <Grid DockPanel.Dock="Top" HorizontalAlignment="Stretch" Background="Transparent" Margin="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -297,7 +297,7 @@
                                         </Image>
                                         <GridEx Margin="0,20,0,20" DockPanel.Dock="Top"
                                                 ColumnCount="2" StarColumns="1"
-                                                RowCount="15" AutoLayoutColumns="2">
+                                                RowCount="10" AutoLayoutColumns="2">
                                             <Grid.Resources>
                                                 <Style TargetType="ItemsControl">
                                                     <Setter Property="VerticalAlignment" Value="Center" />
@@ -312,21 +312,6 @@
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                                 </Style>
                                             </Grid.Resources>
-
-                                            <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" />
-                                            <TextBlock Name="PART_TextPlayTime" />
-
-                                            <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}" />
-                                            <TextBlock Name="PART_TextLastActivity" />
-
-                                            <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" />
-                                            <TextBlock Name="PART_TextCompletionStatus" />
-
-                                            <Label Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" />
-                                            <Button Name="PART_ButtonLibrary" />
-
-                                            <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" />
-                                            <ItemsControl Name="PART_ItemsCategories" />
 
                                             <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" />
                                             <Button Name="PART_ButtonVersion" VerticalAlignment="Center" />
@@ -382,9 +367,8 @@
                                                 <Setter Property="Margin" Value="0"/>
                                             </Style>
                                         </StackPanel.Resources>
-                                        <GridEx HorizontalAlignment="Center"
-                                                ColumnCount="6" RowCount="2" AutoLayoutColumns="6">
-                                            <Grid.Resources>
+                                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,20,0">
+                                            <WrapPanel.Resources>
                                                 <Style TargetType="ItemsControl">
                                                     <Setter Property="Margin" Value="10,0,10,0" />
                                                     <Setter Property="VerticalAlignment" Value="Top"/>
@@ -399,22 +383,42 @@
                                                     <Setter Property="Margin" Value="10,4,10,0" />
                                                     <Setter Property="VerticalAlignment" Value="Top"/>
                                                 </Style>
-                                            </Grid.Resources>
-                                            <Label Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" />
-                                            <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" />
-                                            <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" />
-                                            <Label Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" />
-                                            <Label Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" />
-                                            <Label Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" />
+                                                <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                                    <Setter Property="Margin" Value="10,4,10,0" />
+                                                    <Setter Property="VerticalAlignment" Value="Top"/>
+                                                </Style>
+                                            </WrapPanel.Resources>
+                                            <GridEx HorizontalAlignment="Center" Margin="0,0,0,20"
+                                                ColumnCount="5" RowCount="2" AutoLayoutColumns="5">
+                                                <Label Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" />
+                                                <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" />
+                                                <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" />
+                                                <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}" />
+                                                <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" />
 
-                                            <Button Name="PART_ButtonPlatform"/>
-                                            <Button Name="PART_ButtonReleaseDate" />
-                                            <Button Name="PART_ButtonSeries" />
-                                            <ItemsControl Name="PART_ItemsDevelopers" />
-                                            <ItemsControl Name="PART_ItemsPublishers" />
+                                                <Button Name="PART_ButtonLibrary" />
+                                                <ItemsControl Name="PART_ItemsCategories" />
+                                                <TextBlock Name="PART_TextPlayTime" />
+                                                <TextBlock Name="PART_TextLastActivity" />
+                                                <TextBlock Name="PART_TextCompletionStatus" />
+                                            </GridEx>
+                                            <GridEx HorizontalAlignment="Center" Margin="0,0,0,20"
+                                                ColumnCount="6" RowCount="2" AutoLayoutColumns="6">
+                                                <Label Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" />
+                                                <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" />
+                                                <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" />
+                                                <Label Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" />
+                                                <Label Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" />
+                                                <Label Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" />
 
-                                            <Button Name="PART_ButtonAgeRating" />
-                                        </GridEx>
+                                                <Button Name="PART_ButtonPlatform"/>
+                                                <Button Name="PART_ButtonReleaseDate" />
+                                                <Button Name="PART_ButtonSeries" />
+                                                <ItemsControl Name="PART_ItemsDevelopers" />
+                                                <ItemsControl Name="PART_ItemsPublishers" />
+                                                <Button Name="PART_ButtonAgeRating" />
+                                            </GridEx>
+                                        </WrapPanel>
                                         <StackPanel Margin="20,0,20,0" >
                                             <StackPanel Tag="{DynamicResource Sc_EnableIntegrationInCustomTheme}">
                                                 <StackPanel.Style>
@@ -469,7 +473,7 @@
                                                     <StackPanel Name="PART_ScUserStats" MaxWidth="720"/>
                                                 </StackPanel>
                                             </StackPanel>
-                                            <StackPanel Name="PART_ElemNotes" Margin="0,20,0,0">
+                                            <StackPanel Name="PART_ElemNotes" Margin="0,0,0,20">
                                                 <Grid HorizontalAlignment="Stretch" Margin="0,20,0,20" >
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
@@ -488,7 +492,7 @@
                                                      AcceptsReturn="True" TextWrapping="Wrap"
                                                      Margin="-1,5,-1,5" Padding="0"/>
                                             </StackPanel>
-                                            <StackPanel Name="PART_ElemDescription" Margin="0,20,0,0">
+                                            <StackPanel Name="PART_ElemDescription" Margin="0,0,0,20">
                                                 <Grid HorizontalAlignment="Stretch" Margin="0,20,0,20" >
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
