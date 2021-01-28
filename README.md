@@ -1,8 +1,12 @@
 # Magpie theme for [Playnite](https://playnite.link/) game library manager
 Heavily influenced by the the [Metro for Steam Skin](https://www.metroforsteam.com/) and Epic Launcher's clean design, with a focus on flexibility, customizability and the occasional addition of functions that I desire for personal use.
-### Outstanding features:
+### Design Goals:
+ * __Clear but Unobtrusive Style__ - Your interest is the games; Magpie will not distract you from them but help you parse your large and detailed library with easy and comfort.
+ * __Flexible Appearance__ - I have favorite colors and feelings about font families, transparancy, and border thickness. Sometimes they change hour-to-hour so I'm sure you do too. I've made Magpie to look good and respect your preferences from font sizes, to amount of information, to whether you want a focused darkroom effect or an edge-to-edge display for your games' media. For those that need more control, variables to adjust color, control corner roundness, or transparency are accessible from the main Constants.xaml or use of the ThemeModifier plugin.
+
+### Outstanding Features:
  * __[ThemeModifier](https://github.com/Lacro59/playnite-thememodifier-plugin) by Lacro59 support.__ If you don't like my color scheme or want more or less transparency, you can do it yourself.
- * __Logo & Header Support__ Without compromising existing metadata like icons. Thanks to a hack learned from joyrider3774, logos may optionally be added to your games.
+ * __Logo & Header Support__ without compromising existing metadata like icons. Thanks to a hack learned from joyrider3774, logos may optionally be added to your games.
  * __Rounded cover corners!__ I think they look nice.
  
 ### Supporting or Compatible Extensions for Playnite:
