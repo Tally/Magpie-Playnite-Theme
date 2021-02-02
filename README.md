@@ -15,10 +15,10 @@ Heavily influenced by the the [Metro for Steam Skin](https://www.metroforsteam.c
   * __[HowLongToBeat Plugin](https://github.com/Lacro59/playnite-howlongtobeat-plugin) by Lacro59__ - Useful and if custom theme integration is enabled, the button is appropriately themed and located with the edit button.
   * __[SuccessStory Plugin](https://github.com/Lacro59/playnite-successstory-plugin) by Lacro59__ - Another excellent plugin. Integration with Magpie is limited but coherent like with HowLongToBeat. I don't care too much for achievements but it's good to have unified access to them.
 ### Some example screenshots
-![Grid view with window background](/assets/grid-unbordered-bg.png)
+![Details view banner mode](/assets/details1.png)
 
-![Details view with window background](/assets/details-bg.png)
+![Grid view banner variant](/assets/grid2.png)
 
-![Grid view with bordered covers and no window background](/assets/grid-bordered-no-bg.png)
+![Details view background mode](/assets/details-no-bg.png)
 
-![Details view without window background](/assets/details-no-bg.png)
+![Grid view traditional layout](/assets/grid1.png)
