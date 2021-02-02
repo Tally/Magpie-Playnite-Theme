@@ -59,11 +59,16 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1">
-                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xe12e;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
-                                <Border>
-                                    <SliderWithPopup x:Name="PART_SliderZoom" />
-                                </Border>
+                            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left">
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D8;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
+                                <SliderWithPopup x:Name="PART_SliderZoom" />
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D9;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
+                                <StackPanel.Effect>
+                                    <DropShadowEffect ShadowDepth="0"
+                                                         Color="Black"
+                                                         Opacity="1"
+                                                         BlurRadius="2"/>
+                                </StackPanel.Effect>
                             </StackPanel>
                         </Grid>
                     </DockPanel>

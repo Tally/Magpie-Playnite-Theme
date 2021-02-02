@@ -26,8 +26,14 @@
                         </Border.Style>
                         <Grid>
 
-                            <TextBlock Name="LogoPath" Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}" Style="{DynamicResource ExtraMetadataLogoPath}"/>
-                            <TextBlock Name="HeaderPath" Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}" Style="{DynamicResource ExtraMetadataHeaderPath}"/>
+                            <TextBlock Name="LogoPath" Style="{DynamicResource ExtraMetadataLogoPath}"
+                                   Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}"/>
+                            <TextBlock Name="LogoLeftPath" Style="{DynamicResource ExtraMetadataLogoLeftPath}"
+                                   Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}"/>
+                            <TextBlock Name="LogoRightPath" Style="{DynamicResource ExtraMetadataLogoRightPath}"
+                                   Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}"/>
+                            <TextBlock Name="HeaderPath" Style="{DynamicResource ExtraMetadataHeaderPath}" 
+                                   Visibility="Collapsed"  Tag="{DynamicResource ExtraMetadataPath}"/>
 
                             <DockPanel>
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Top"
@@ -78,9 +84,9 @@
                                                             <Setter Property="Source" Value="{Binding ElementName=HeaderPath, Path=Text}"/>
                                                             <Style.Triggers>
                                                                 <Trigger Property="Source" Value="{x:Null}">
-                                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                                    </Trigger>
-                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </Trigger>
+                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
                                                                     <Setter Property="Source" Value="{Binding ElementName=HeaderPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
                                                                 </DataTrigger>
                                                             </Style.Triggers>
@@ -101,8 +107,8 @@
                                                     <FadeImage x:Name="PART_ImageBackground" Grid.ColumnSpan="3"
                                                        Grid.RowSpan="3" Stretch="UniformToFill"
                                                        VerticalAlignment="Top" HorizontalAlignment="Center" />
-                                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" StretchDirection="DownOnly"
-                                                           Name="LogoImage" RenderOptions.BitmapScalingMode="Fant" Grid.Column="1" Grid.Row="1"
+                                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Name="LogoImage"
+                                                           RenderOptions.BitmapScalingMode="Fant" Grid.Column="1" Grid.Row="1"
                                                            Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
                                                         <Image.Style>
                                                             <Style TargetType="Image">
@@ -110,6 +116,34 @@
                                                                 <Style.Triggers>
                                                                     <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
                                                                         <Setter Property="Source" Value="{Binding ElementName=LogoPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Image.Style>
+                                                    </Image>
+                                                    <Image HorizontalAlignment="Left" VerticalAlignment="Center" Name="LogoImageLeft"
+                                                           RenderOptions.BitmapScalingMode="Fant" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                                                           Margin="10,0,-10,0" Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
+                                                        <Image.Style>
+                                                            <Style TargetType="Image">
+                                                                <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text}"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                        <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Image.Style>
+                                                    </Image>
+                                                    <Image HorizontalAlignment="Right" VerticalAlignment="Center" Name="LogoImageRight"
+                                                           RenderOptions.BitmapScalingMode="Fant" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                                                           Margin="-10,0,10,0" Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
+                                                        <Image.Style>
+                                                            <Style TargetType="Image">
+                                                                <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text}"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                        <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
@@ -132,9 +166,14 @@
                                                             <Style TargetType="Viewbox">
                                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding ElementName=LogoImage, Path=Source}" Value="{x:Null}">
+                                                                    <MultiDataTrigger>
+                                                                        <MultiDataTrigger.Conditions>
+                                                                            <Condition Binding="{Binding ElementName=LogoImage, Path=Source}" Value="{x:Null}" />
+                                                                            <Condition Binding="{Binding ElementName=LogoImageLeft, Path=Source}" Value="{x:Null}" />
+                                                                            <Condition Binding="{Binding ElementName=LogoImageRight, Path=Source}" Value="{x:Null}" />
+                                                                        </MultiDataTrigger.Conditions>
                                                                         <Setter Property="Visibility" Value="Visible"/>
-                                                                    </DataTrigger>
+                                                                    </MultiDataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
                                                         </Viewbox.Style>
@@ -163,7 +202,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <Grid VerticalAlignment="Bottom" Background="Transparent" HorizontalAlignment="Stretch" Margin="10,10,5,0">
+                                            <Grid VerticalAlignment="Bottom" Background="Transparent" HorizontalAlignment="Stretch" Margin="10,10,5,10">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
                                                     <ColumnDefinition Width="Auto" />
@@ -194,8 +233,8 @@
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
                                                     <StackPanel Tag="{DynamicResource Htlb_EnableIntegrationInCustomTheme}">
-                                                        <Button Name="PART_HltbCustomButton" Content="&#x23f3;"
-                                                    FontFamily="{DynamicResource SymbolFont}"/>
+                                                        <Button Name="PART_HltbCustomButton" Content="&#x23F1;" ToolTip="{DynamicResource LOCHowLongToBeat}"
+                                                                FontFamily="{DynamicResource SymbolFont}"/>
                                                         <StackPanel.Style>
                                                             <Style TargetType="StackPanel">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
@@ -223,7 +262,7 @@
                                                             </Style>
                                                         </StackPanel.Style>
                                                     </StackPanel>
-                                                    
+
                                                     <Button x:Name="PART_ButtonEditGame" Margin="0"
                                                 FontFamily="{DynamicResource SymbolFont}" Content="&#xE104;"/>
                                                     <StackPanel.Style>
@@ -239,19 +278,6 @@
                                                 </StackPanel>
                                             </Grid>
                                         </Border>
-                                        <Grid HorizontalAlignment="Stretch" Margin="15,0,5,0" >
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="0"/>
-                                            <TextBlock Text="{DynamicResource LOCGameDetails}" Foreground="{DynamicResource TextBrush}" Margin="10,0,10,0"
-                                                       FontSize="{DynamicResource FontSizeLarger}" FontFamily="{DynamicResource FontFamily}"
-                                                       Typography.Capitals="SmallCaps" FontWeight="SemiBold" HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center" Grid.Column="1"/>
-                                            <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="3" Grid.ColumnSpan="2"/>
-                                        </Grid>
                                     </StackPanel>
                                     <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
                                               HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
@@ -274,128 +300,178 @@
                                                     <Setter Property="Margin" Value="0"/>
                                                 </Style>
                                             </StackPanel.Resources>
-
-                                            <Border BorderBrush="Transparent" HorizontalAlignment="Stretch" Margin="5,0,5,0"
-                                                    BorderThickness="{DynamicResource ControlBorderThickness}"  Background="Transparent"
-                                                    CornerRadius="{DynamicResource ControlCornerRadius}" >
-                                                <Viewbox StretchDirection="DownOnly">
-                                                    <WrapPanel Orientation="Horizontal" Margin="10">
-                                                        <WrapPanel.Resources>
-                                                            <Style TargetType="ItemsControl">
-                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                            </Style>
-                                                            <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
-                                                                <Setter Property="Margin" Value="0,4,8,4" />
-                                                                <Setter Property="VerticalAlignment" Value="Top" />
-                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                            </Style>
-                                                            <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}" />
-                                                        </WrapPanel.Resources>
-                                                        <GridEx Margin="0,0,15,0"
-                                                    ColumnCount="2" StarColumns="1"
-                                                    RowCount="10" AutoLayoutColumns="2">
-                                                            <Grid.Resources>
-                                                                <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
-                                                            </Grid.Resources>
-
-                                                            <Label Name="PART_ElemPlayTime" Content="Play Time" />
-                                                            <TextBlock Name="PART_TextPlayTime" VerticalAlignment="Center" />
-
-                                                            <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}" />
-                                                            <TextBlock Name="PART_TextLastActivity" VerticalAlignment="Center" />
-
-                                                            <Label Name="PART_ElemCompletionStatus" Content="Completion" />
-                                                            <TextBlock Name="PART_TextCompletionStatus" VerticalAlignment="Center" />
-
-                                                            <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" />
-                                                            <ItemsControl Name="PART_ItemsCategories" />
-
-                                                            <Label Name="PART_ElemTags" Content="{DynamicResource LOCTagsLabel}" />
-                                                            <ItemsControl Name="PART_ItemsTags" />
-
-                                                            <Label Name="PART_ElemRegion" Content="{DynamicResource LOCRegionLabel}" />
-                                                            <Button Name="PART_ButtonRegion" VerticalAlignment="Center" />
-
-                                                            <Label Name="PART_ElemUserScore" Content="{DynamicResource LOCUserScore}" />
-                                                            <TextBlock Name="PART_TextUserScore" VerticalAlignment="Center"
-                                                           Style="{DynamicResource TextBlockGameScore}" />
-
-                                                            <Label Name="PART_ElemCommunityScore" Content="Comm. Score" />
-                                                            <TextBlock Name="PART_TextCommunityScore" VerticalAlignment="Center"
-                                                           Style="{DynamicResource TextBlockGameScore}" />
-
-                                                            <Label Name="PART_ElemCriticScore" Content="{DynamicResource LOCCriticScore}" />
-                                                            <TextBlock Name="PART_TextCriticScore" VerticalAlignment="Center"
-                                                           Style="{DynamicResource TextBlockGameScore}" />
-
-                                                            <Label Name="PART_ElemLinks" Content="{DynamicResource LOCLinksLabel}" />
-                                                            <ItemsControl Name="PART_ItemsLinks" />
-                                                        </GridEx>
-                                                        <Border BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1,0,0,0" Margin="-1,0,0,0">
-                                                            <GridEx Margin="15,0,0,0"
-                                                    ColumnCount="2" StarColumns="1"
-                                                    RowCount="11" AutoLayoutColumns="2">
-                                                                <Grid.Resources>
-                                                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
-                                                                </Grid.Resources>
-
-                                                                <Label Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" />
-                                                                <Button Name="PART_ButtonLibrary" VerticalAlignment="Center" />
-
-                                                                <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" />
-                                                                <Button Name="PART_ButtonVersion" VerticalAlignment="Center" />
-
-                                                                <Label Name="PART_ElemSource" Content="{DynamicResource LOCSourceLabel}" />
-                                                                <Button Name="PART_ButtonSource" VerticalAlignment="Center" />
-
-                                                                <Label Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" />
-                                                                <Button Name="PART_ButtonPlatform" VerticalAlignment="Center" />
-
-                                                                <Label Name="PART_ElemGenres" Content="{DynamicResource LOCGenreLabel}" />
-                                                                <ItemsControl Name="PART_ItemsGenres"  />
-
-                                                                <Label Name="PART_ElemFeatures" Content="{DynamicResource LOCFeaturesLabel}" />
-                                                                <ItemsControl Name="PART_ItemsFeatures" />
-
-                                                                <Label Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" />
-                                                                <ItemsControl Name="PART_ItemsDevelopers" />
-
-                                                                <Label Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" />
-                                                                <ItemsControl Name="PART_ItemsPublishers" />
-
-                                                                <Label Name="PART_ElemReleaseDate" Content="Released" />
-                                                                <Button Name="PART_ButtonReleaseDate" VerticalAlignment="Center" />
-
-                                                                <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" />
-                                                                <Button Name="PART_ButtonSeries" VerticalAlignment="Center" />
-
-                                                                <Label Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" />
-                                                                <Button Name="PART_ButtonAgeRating" VerticalAlignment="Center" />
-
-                                                            </GridEx>
-                                                        </Border>
-                                                    </WrapPanel>
-                                                </Viewbox>
-                                            </Border>
-                                            <StackPanel Name="PART_ElemDescription" Margin="0,20,0,0">
-                                                <Grid HorizontalAlignment="Stretch" Margin="0,20,0,20" >
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="0"/>
-                                                    <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0">
-                                                        <Image Name="PART_ImageIcon" Height="32" Width="32" SnapsToDevicePixels="True"
+                                            <Grid HorizontalAlignment="Stretch" Margin="0,0,0,20" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="0"/>
+                                                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0">
+                                                    <Image Name="PART_ImageIcon" Height="32" Width="32" SnapsToDevicePixels="True"
                                                                    Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                                    StretchDirection="DownOnly" RenderOptions.BitmapScalingMode="Fant"/>
-                                                        <TextBlock Text="{DynamicResource AboutGameText}" Foreground="{DynamicResource TextBrush}"
-                                                               FontSize="{DynamicResource FontSizeLarger}" FontFamily="{DynamicResource FontFamily}"
-                                                               Typography.Capitals="SmallCaps" Visibility="Visible" FontWeight="SemiBold"
-                                                               VerticalAlignment="Center" Margin="10,0,10,0"/>
-                                                    </StackPanel>
-                                                    <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="2"/>
-                                                </Grid>
+                                                    <TextBlock Foreground="{DynamicResource TextBrush}" Tag="{DynamicResource LOCGameDescriptionTitle}"
+                                                                   FontSize="{DynamicResource FontSizeLarger}" FontFamily="{DynamicResource FontFamily}"
+                                                                   Typography.Capitals="SmallCaps" FontWeight="SemiBold"
+                                                                   VerticalAlignment="Center" Margin="10,0,10,0">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="{DynamicResource LOCGameDescriptionTitle}"/>
+                                                                <Style.Triggers>
+                                                                    <Trigger Property="Tag" Value="Description">
+                                                                        <Setter Property="Text" Value="About the Game"/>
+                                                                    </Trigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                                <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="2"/>
+                                            </Grid>
+                                            <Expander Margin="-10,0,0,20" HorizontalAlignment="Stretch">
+                                                <Expander.Header>
+                                                    <TextBlock Text="{DynamicResource LOCMoreAction}" Foreground="{DynamicResource GlyphBrush}" Margin="0,10,0,10"
+                                                                   FontSize="{DynamicResource FontSizeLarge}" FontFamily="{DynamicResource FontFamily}"
+                                                                   Typography.Capitals="SmallCaps" FontWeight="SemiBold" HorizontalAlignment="Left"
+                                                                   VerticalAlignment="Center" />
+                                                </Expander.Header>
+                                                <Expander.Resources>
+                                                    <Style TargetType="StackPanel">
+                                                        <Setter Property="Orientation" Value="Horizontal"/>
+                                                        <Setter Property="VerticalAlignment" Value="Top"/>
+                                                    </Style>
+                                                    <Style TargetType="ItemsControl">
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                        <Setter Property="Margin" Value="0,0,10,10" />
+                                                        <Setter Property="MinWidth" Value="140"/>
+
+                                                    </Style>
+                                                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="VerticalAlignment" Value="Top"/>
+                                                        <Setter Property="MinWidth" Value="30"/>
+                                                        <Setter Property="Margin" Value="0,0,10,10" />
+                                                        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}"/>
+                                                        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}" />
+                                                        <Setter Property="FontFamily" Value="{DynamicResource SymbolFont}"/>
+                                                    </Style>
+                                                    <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}" >
+                                                        <Setter Property="Margin" Value="0,0,10,10" />
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="MinWidth" Value="140"/>
+                                                    </Style>
+                                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" >
+                                                        <Setter Property="Margin" Value="0,0,10,10" />
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="MinWidth" Value="140"/>
+                                                    </Style>
+                                                </Expander.Resources>
+                                                <StackPanel Orientation="Vertical">
+                                                    <WrapPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemPlayTime" Content="&#xE121;" ToolTip="{DynamicResource LOCTimePlayed}"/>
+                                                            <TextBlock Name="PART_TextPlayTime" />
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemLastPlayed" Content="&#xE163;" ToolTip="{DynamicResource LOCLastPlayed}"/>
+                                                            <TextBlock Name="PART_TextLastActivity" />
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemCompletionStatus" Content="&#xE10B;" ToolTip="{DynamicResource LOCCompletionStatus}"/>
+                                                            <TextBlock Name="PART_TextCompletionStatus" />
+                                                        </StackPanel>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemLibrary" Content="&#xEF65;" FontFamily="{DynamicResource FontIcoFont}"
+                                                                   ToolTip="{DynamicResource LOCGameProviderTitle}"/>
+                                                            <Button Name="PART_ButtonLibrary"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemSource" Content="&#xE14D;" ToolTip="{DynamicResource LOCSourceLabel}"/>
+                                                            <Button Name="PART_ButtonSource"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemCategories" Content="&#xE188;" ToolTip="{DynamicResource LOCGameCategoriesTitle}"/>
+                                                            <ItemsControl Name="PART_ItemsCategories"/>
+                                                        </StackPanel>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemUserScore" Content="&#xE13D;" ToolTip="{DynamicResource LOCUserScore}"/>
+                                                            <TextBlock Name="PART_TextUserScore" Style="{DynamicResource TextBlockGameScore}"
+                                                                       VerticalAlignment="Center" Margin="0,0,10,10" MinWidth="140"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemCommunityScore" Content="&#xE125;" ToolTip="{DynamicResource LOCCommunityScore}"/>
+                                                            <TextBlock Name="PART_TextCommunityScore" Style="{DynamicResource TextBlockGameScore}"
+                                                                       VerticalAlignment="Center" Margin="0,0,10,10" MinWidth="140"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemCriticScore" Content="&#xE136;" ToolTip="{DynamicResource LOCCriticScore}"/>
+                                                            <TextBlock Name="PART_TextCriticScore" Style="{DynamicResource TextBlockGameScore}"
+                                                                       VerticalAlignment="Center" Margin="0,0,10,10" MinWidth="140"/>
+                                                        </StackPanel>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemPlatform" Content="&#xEA32;" FontFamily="{DynamicResource FontIcoFont}"
+                                                                   ToolTip="{DynamicResource LOCPlatformTitle}"/>
+                                                            <Button Name="PART_ButtonPlatform"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemReleaseDate" Content="&#x1F382;" ToolTip="{DynamicResource LOCGameReleaseDateTitle}"/>
+                                                            <Button Name="PART_ButtonReleaseDate"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemSeries" Content="&#xE158;" ToolTip="{DynamicResource LOCSeriesLabel}"/>
+                                                            <Button Name="PART_ButtonSeries"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemDevelopers" Content="&#xE144;" ToolTip="{DynamicResource LOCDeveloperLabel}"/>
+                                                            <ItemsControl Name="PART_ItemsDevelopers" />
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemPublishers" Content="&#x1F454;" ToolTip="{DynamicResource LOCPublisherLabel}"/>
+                                                            <ItemsControl Name="PART_ItemsPublishers" />
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemAgeRating" Content="&#x26D4;" ToolTip="{DynamicResource LOCAgeRatingLabel}"/>
+                                                            <Button Name="PART_ButtonAgeRating" />
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemVersion" Content="&#xE15E;" ToolTip="{DynamicResource LOCVersionLabel}"/>
+                                                            <Button Name="PART_ButtonVersion"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemRegion" Content="&#xE128;" ToolTip="{DynamicResource LOCRegionLabel}"/>
+                                                            <Button Name="PART_ButtonRegion"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemGenres" Content="&#x1F3AD;" ToolTip="{DynamicResource LOCGenreLabel}"/>
+                                                            <ItemsControl Name="PART_ItemsGenres"/>
+                                                        </StackPanel>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemTags" Content="&#xE1CB;" ToolTip="{DynamicResource LOCTagsLabel}"/>
+                                                            <ItemsControl Name="PART_ItemsTags"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemFeatures" Content="&#xE133;" ToolTip="{DynamicResource LOCFeaturesLabel}"/>
+                                                            <ItemsControl Name="PART_ItemsFeatures"/>
+                                                        </StackPanel>
+                                                        <StackPanel>
+                                                            <Label Name="PART_ElemLinks" Content="&#xEF71;" FontFamily="{DynamicResource FontIcoFont}"
+                                                                   ToolTip="{DynamicResource LOCLinksLabel}"/>
+                                                            <ItemsControl Name="PART_ItemsLinks"/>
+                                                        </StackPanel>
+                                                    </WrapPanel>
+                                                </StackPanel>
+                                            </Expander>
+                                            <StackPanel Name="PART_ElemDescription" Margin="0,0,0,20">
                                                 <HtmlTextView Name="PART_HtmlDescription"
                                                       Margin="5,0,0,0"
                                                       HtmlFontSize="{DynamicResource FontSize}"
@@ -405,8 +481,8 @@
                                                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                                       ScrollViewer.VerticalScrollBarVisibility="Disabled" />
                                             </StackPanel>
-                                            <StackPanel Name="PART_ElemNotes" Margin="0,20,0,0">
-                                                <Grid HorizontalAlignment="Stretch" Margin="0,20,0,20" >
+                                            <StackPanel Name="PART_ElemNotes" Margin="0,0,0,20">
+                                                <Grid HorizontalAlignment="Stretch" Margin="0,0,0,20" >
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="Auto"/>

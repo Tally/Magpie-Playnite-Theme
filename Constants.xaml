@@ -43,7 +43,7 @@
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource BackgroundToneColor}" />
     <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7 "/>
-    <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="0.7"/>
+    <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="1"/>
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
 
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
@@ -71,12 +71,13 @@
     <sys:Boolean x:Key="UseAbsoluteExtraMetadataPath">false</sys:Boolean>
     <sys:String x:Key="ExtraMetadataPath">..\..\..\..</sys:String>
     <sys:String x:Key="AboutGameText">About the Game</sys:String>
+    <sys:Boolean x:Key="BGModeOn">false</sys:Boolean>
     
     <sys:Double x:Key="ControlCornerRadiusDouble">0</sys:Double>
     <sys:Double x:Key="GroupSeparatorOpacity">1</sys:Double>
-    <FontFamily x:Key="SymbolFont">segoeuisym.ttf#Segoe UI Symbol</FontFamily>
+    <FontFamily x:Key="SymbolFont">seguisym.ttf#Segoe UI Symbol</FontFamily>
     <Visibility x:Key="TitleTextVisibility">Visible</Visibility>
-    <sys:Double x:Key="DetailsViewPanelWidth">1080</sys:Double>
+    <sys:Double x:Key="DetailsViewPanelWidth">1280</sys:Double>
     
     <!-- Magpie-Specific Colors -->
     <Color x:Key="ButtonBackgroundColor">#2b2b2b</Color>
@@ -84,6 +85,7 @@
     <Color x:Key="ContextButtonColor">#385DA2</Color>
     <Color x:Key="ContextButtonHighlightColor">#5C63BB</Color>
     <Color x:Key="ClearFilterButtonColor">#e34141</Color>
+    <Color x:Key="PopupBackgroundTransparent">#00121212</Color>
 
     <SolidColorBrush x:Key="CoverHighlightBrush" Color="#20FFFFFF" />
 
