@@ -19,6 +19,6 @@ Heavily influenced by the the [Metro for Steam Skin](https://www.metroforsteam.c
 
 ![Grid view banner variant](/assets/grid2.png)
 
-![Details view background mode](/assets/details-no-bg.png)
+![Details view background mode](/assets/details2.png)
 
 ![Grid view traditional layout](/assets/grid1.png)
