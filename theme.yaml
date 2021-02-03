@@ -2,7 +2,7 @@ ThemeApiVersion: 1.9.0
 Id: Magpie_Desktop
 Name: Magpie
 Author: Dan Davis
-Version: 0.9.0
+Version: 0.9.1
 Constants:
   - BGModeOn: Off for banners on for backgrounds in details.
   - UseAbsoluteExtraMetadataPath: Use absolute path to your Playnite config folder.
