@@ -12,7 +12,7 @@ Heavily influenced by the the [Metro for Steam Skin](https://www.metroforsteam.c
 ### Supporting or Compatible Extensions for Playnite:
  * __[Extra Metadata Tools](https://playnite.link/forum/thread-575.html) by DarkLinkPower__ - Implementing flexible support for additional metadata media was a shared goal and this extension will facilitate acquiring or adapting logos and other custom media for use in this and other themes.
  * __[ThemeModifier](https://github.com/Lacro59/playnite-thememodifier-plugin)__ - As mentioned above, many aspects of the theme have ben made available to be adjusted with this extension from the settings menu. Those who prefer can do the same by manually editing the contained Constants.xaml file, however.
-  * __[HowLongToBeat Plugin](https://github.com/Lacro59/playnite-howlongtobeat-plugin) by Lacro59__ - Useful and if custom theme integration is enabled, the button is appropriately themed and located with the edit button.
+  * __[HowLongToBeat Plugin](https://github.com/Lacro59/playnite-howlongtobeat-plugin) by Lacro59__ - Useful and, if custom theme integration is enabled, time-to-beat will appear with playtime, the button is appropriately themed, and it is located with the edit button.
   * __[SuccessStory Plugin](https://github.com/Lacro59/playnite-successstory-plugin) by Lacro59__ - Another excellent plugin. Integration with Magpie is limited but coherent like with HowLongToBeat. I don't care too much for achievements but it's good to have unified access to them.
 ### Some example screenshots
 ![Details view banner mode](/assets/details1.png)
