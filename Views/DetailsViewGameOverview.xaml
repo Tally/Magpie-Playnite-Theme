@@ -229,7 +229,7 @@
                                    Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
                                     <Image.Style>
                                         <Style TargetType="Image">
-                                            <Setter Property="Source" Value="{Binding ElementName=LogoPath, Path=Text}"/>
+                                            <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
                                                     <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
@@ -244,7 +244,7 @@
                                    Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
                                     <Image.Style>
                                         <Style TargetType="Image">
-                                            <Setter Property="Source" Value="{Binding ElementName=LogoPath, Path=Text}"/>
+                                            <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
                                                     <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
