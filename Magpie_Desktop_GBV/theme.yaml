@@ -1,0 +1,21 @@
+ThemeApiVersion: 1.9.0
+Id: Magpie_Desktop_GBV
+Name: Magpie (Grid Banner Variant)
+Author: Dan Davis
+Version: 0.9.3
+Constants:
+  - BGModeOn: Off for banners on for backgrounds in details.
+  - UseAbsoluteExtraMetadataPath: Use absolute path to your Playnite config folder.
+  - ExtraMetadataPath: That path; no ending backslash.
+  - DetailsViewPanelWidth(640,2560): Width of main details view panel.
+  - TitleTextVisibility: Visibility of Title shown if missing logo.
+  - TitlebarBrush: Titlebar background.
+  - PanelBackgroundBrush: Side panels.
+  - DetailsPanelBrush: Center info panel in details view.
+  - DetailsViewGroupTextBrush: Group titles in details view.
+  - ExpanderBackgroundBrush: Background for group expanders.
+  - PanelButtonBrush: Buttons shown in details & grid item info panels.
+  - PanelButtonHoverBrush: The above when hovered & play button normally.
+  - PlayButtonBrush: Play button when hovered.
+  - ContextButtonBrush: Install/contextual button when hovered.
+  - CoverHighlightBrush: Hovered covers in grid view.
