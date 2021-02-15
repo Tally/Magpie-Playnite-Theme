@@ -1,4 +1,4 @@
-# Magpie theme for [Playnite](https://playnite.link/) game library manager
+# Magpie - A Theme for [Playnite](https://playnite.link/) ![DownloadCount](https://img.shields.io/github/downloads/Tally/Magpie-Playnite-Theme/total.svg)
 Heavily influenced by the the [Metro for Steam Skin](https://www.metroforsteam.com/) and Epic Launcher's clean design, with a focus on flexibility, customizability and the occasional addition of functions that I desire for personal use.
 ### Design Goals:
  * __Clear but Unobtrusive Style__ - Your interest is the games; Magpie will not distract you from them but help you parse your large and detailed library easily.
