@@ -13,13 +13,11 @@
                           Margin="{Settings ItemSpacingMargin}"
                           x:Name="ItemGrid">
                         <StackPanel Orientation="Vertical">
-                            <Border x:Name="SelectionBorder" CornerRadius="{DynamicResource ControlCornerRadius}"
-                                Padding="{Settings GridItemMargin}"
-                                BorderBrush="{DynamicResource GridItemBackgroundBrush}"
-                                Background="{DynamicResource GridItemBackgroundBrush}">
-                                <Border>
-                                    <ContentPresenter />
-                                    <Border.OpacityMask>
+                            <Border x:Name="SelectionBorder" Padding="{Settings GridItemMargin}"
+                                    BorderBrush="{DynamicResource GridItemBackgroundBrush}"
+                                    Background="{DynamicResource GridItemBackgroundBrush}">
+                                <ContentPresenter>
+                                    <ContentPresenter.OpacityMask>
                                         <DrawingBrush x:Name="CoverMask" RenderOptions.CachingHint="Cache">
                                             <DrawingBrush.Drawing>
                                                 <GeometryDrawing Brush="White">
@@ -32,8 +30,8 @@
                                                 </GeometryDrawing>
                                             </DrawingBrush.Drawing>
                                         </DrawingBrush>
-                                    </Border.OpacityMask>
-                                </Border>
+                                    </ContentPresenter.OpacityMask>
+                                </ContentPresenter>
                                 <Border.OpacityMask>
                                     <DrawingBrush RenderOptions.CachingHint="Cache">
                                         <DrawingBrush.Drawing>

@@ -47,7 +47,7 @@
                             </ExtendedListBox>
                             <TextBlock FontSize="{StaticResource FontSizeLarge}" Margin="0,40,0,0"
                                        Text="{DynamicResource LOCNoItemsFound}" TextWrapping="Wrap"                                      
-                                       TextAlignment="Center" HorizontalAlignment="Center">
+                                       TextAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
                                         <Setter Property="Visibility" Value="Collapsed" />
@@ -60,9 +60,13 @@
                                 </TextBlock.Style>
                             </TextBlock>
                             <StackPanel Margin="5" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
-                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D8;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D8;"
+                                       Foreground="{DynamicResource TextBrushDarker}" Margin="10,5,10,5"
+                                       TextOptions.TextRenderingMode="Aliased"/>
                                 <SliderWithPopup x:Name="PART_SliderZoom" />
-                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D9;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,0,10,0"/>
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D9;"
+                                       Foreground="{DynamicResource TextBrushDarker}" Margin="10,5,10,5"
+                                       TextOptions.TextRenderingMode="Aliased"/>
                                 <StackPanel.Effect>
                                     <DropShadowEffect ShadowDepth="0"
                                                          Color="Black"

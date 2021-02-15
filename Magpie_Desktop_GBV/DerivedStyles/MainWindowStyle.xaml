@@ -7,6 +7,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
         <Setter Property="TextOptions.TextRenderingMode" Value="Auto" />
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CaptionHeight="25" CornerRadius="0" ResizeBorderThickness="4"
@@ -38,7 +39,7 @@
                                 </DockPanel>
                                 <Border BorderBrush="{DynamicResource PopupBorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        Background="Transparent" CornerRadius="0" Margin="-1"
+                                        CornerRadius="0" Margin="-1"
                                         IsHitTestVisible="False" Visibility="Visible"/>
                             </Grid>
                         </Border>

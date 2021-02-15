@@ -26,14 +26,20 @@
                         </Border.Style>
 
                         <Grid>
-                            <Border Name="PanelBackground" Visibility="Hidden">
-                                <Border.Background>
-                                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.9">
-                                        <GradientStop Offset="0" Color="{DynamicResource PopupBackgroundTransparent}"/>
-                                        <GradientStop Offset="1" Color="{DynamicResource PopupBackgroundColor}"/>
-                                    </LinearGradientBrush>
-                                </Border.Background>
-                            </Border>
+                            <TextBlock Text="{DynamicResource LOCErrorNoGameSelected}" 
+                                   Margin="0,20,0,0" DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <Trigger Property="DataContext" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
 
                             <TextBlock Name="LogoPath" Style="{DynamicResource ExtraMetadataLogoPath}"
                                    Visibility="Collapsed" Tag="{DynamicResource ExtraMetadataPath}"/>
@@ -58,16 +64,15 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Grid Grid.Row="0" Grid.RowSpan="2">
-                                    <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
-                                           VerticalAlignment="Top" HorizontalAlignment="Center" />
-                                    <Grid.OpacityMask>
+                                <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" Grid.Row="0" Grid.RowSpan="2"
+                                           VerticalAlignment="Top" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="Fant">
+                                    <FadeImage.OpacityMask>
                                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.9">
                                             <GradientStop Offset="0" Color="{DynamicResource PopupBackgroundTransparent}"/>
                                             <GradientStop Offset="1" Color="{DynamicResource PopupBackgroundColor}"/>
                                         </LinearGradientBrush>
-                                    </Grid.OpacityMask>
-                                </Grid>
+                                    </FadeImage.OpacityMask>
+                                </FadeImage>
 
                                 <TextBlock Text="{DynamicResource LOCErrorNoGameSelected}" 
                                    Margin="0,20,0,0" Grid.Row="0"
@@ -112,6 +117,48 @@
                                                 <RowDefinition Height="1*" />
                                                 <RowDefinition Height="{Binding ElementName=ControlsPanel, Path=ActualHeight}" />
                                             </Grid.RowDefinitions>
+                                            <FadeImage HorizontalAlignment="Center" VerticalAlignment="Center" Name="FadeLogoImage" AnimationEnabled="{Settings BackgroundImageAnimation}"
+                                                           RenderOptions.BitmapScalingMode="Fant" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Stretch="Uniform"
+                                                           Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
+                                                <FadeImage.Style>
+                                                    <Style TargetType="FadeImage">
+                                                        <Setter Property="Source" Value="{Binding ElementName=LogoPath, Path=Text}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false">
+                                                                <Setter Property="Source" Value="{x:Null}"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </FadeImage.Style>
+                                            </FadeImage>
+                                            <FadeImage HorizontalAlignment="Left" VerticalAlignment="Center" Name="FadeLogoImageLeft" AnimationEnabled="{Settings BackgroundImageAnimation}"
+                                                           RenderOptions.BitmapScalingMode="Fant" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Stretch="Uniform"
+                                                           Margin="50,0,-50,0" Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
+                                                <FadeImage.Style>
+                                                    <Style TargetType="FadeImage">
+                                                        <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false">
+                                                                <Setter Property="Source" Value="{x:Null}"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </FadeImage.Style>
+                                            </FadeImage>
+                                            <FadeImage HorizontalAlignment="Right" VerticalAlignment="Center" Name="FadeLogoImageRight" AnimationEnabled="{Settings BackgroundImageAnimation}"
+                                                           RenderOptions.BitmapScalingMode="Fant" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Stretch="Uniform"
+                                                           Margin="-50,0,50,0" Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
+                                                <FadeImage.Style>
+                                                    <Style TargetType="FadeImage">
+                                                        <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false">
+                                                                <Setter Property="Source" Value="{x:Null}"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </FadeImage.Style>
+                                            </FadeImage>
                                             <Image HorizontalAlignment="Center" VerticalAlignment="Center" Name="LogoImage"
                                                            RenderOptions.BitmapScalingMode="Fant" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                                                            Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
@@ -120,7 +167,7 @@
                                                         <Setter Property="Source" Value="{Binding ElementName=LogoPath, Path=Text}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                <Setter Property="Source" Value="{Binding ElementName=LogoPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
+                                                                <Setter Property="Source" Value="{x:Null}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -134,7 +181,7 @@
                                                         <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                <Setter Property="Source" Value="{Binding ElementName=LogoLeftPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
+                                                                <Setter Property="Source" Value="{x:Null}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -148,38 +195,47 @@
                                                         <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text}"/>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                <Setter Property="Source" Value="{Binding ElementName=LogoRightPath, Path=Text, Converter={StaticResource ImageStringToImageConverter}}"/>
+                                                                <Setter Property="Source" Value="{x:Null}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-                                                <TextBlock Text="{Binding Game.DisplayName}" MaxWidth="720" FontSize="48"
+                                            <TextBlock Text="{Binding Game.DisplayName}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="{DynamicResource FontSizeLargest}"
                                                            TextWrapping="Wrap" VerticalAlignment="Center" Foreground="{DynamicResource TextBrush}"
-                                                           TextOptions.TextRenderingMode="Aliased" TextAlignment="Center" Typography.Capitals="SmallCaps">
-                                                    <TextBlock.Effect>
-                                                        <DropShadowEffect ShadowDepth="0"
+                                                           TextOptions.TextRenderingMode="Aliased" TextOptions.TextFormattingMode="Ideal"
+                                                           TextAlignment="Center" Typography.Capitals="SmallCaps" Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect ShadowDepth="0"
                                                                                   Color="{DynamicResource PopupBackgroundColor}"
                                                                                   Opacity="1" BlurRadius="5"/>
-                                                    </TextBlock.Effect>
-                                                    <TextBlock.Style>
-                                                        <Style TargetType="TextBlock">
-                                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                                            <Style.Triggers>
-                                                                <MultiDataTrigger>
-                                                                    <MultiDataTrigger.Conditions>
-                                                                        <Condition Binding="{Binding ElementName=LogoImage, Path=Source}" Value="{x:Null}" />
-                                                                        <Condition Binding="{Binding ElementName=LogoImageLeft, Path=Source}" Value="{x:Null}" />
-                                                                        <Condition Binding="{Binding ElementName=LogoImageRight, Path=Source}" Value="{x:Null}" />
-                                                                    </MultiDataTrigger.Conditions>
-                                                                    <Setter Property="Visibility" Value="{DynamicResource TitleTextVisibility}"/>
-                                                                </MultiDataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </TextBlock.Style>
-                                                </TextBlock>
-                                            </Viewbox>
+                                                </TextBlock.Effect>
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <MultiDataTrigger>
+                                                                <MultiDataTrigger.Conditions>
+                                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True"/>
+                                                                    <Condition Binding="{Binding ElementName=FadeLogoImage, Path=ActualHeight}" Value="0" />
+                                                                    <Condition Binding="{Binding ElementName=FadeLogoImageLeft, Path=ActualHeight}" Value="0" />
+                                                                    <Condition Binding="{Binding ElementName=FadeLogoImageRight, Path=ActualHeight}" Value="0" />
+                                                                </MultiDataTrigger.Conditions>
+                                                                <Setter Property="Visibility" Value="{DynamicResource TitleTextVisibility}"/>
+                                                            </MultiDataTrigger>
+                                                            <MultiDataTrigger>
+                                                                <MultiDataTrigger.Conditions>
+                                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False"/>
+                                                                    <Condition Binding="{Binding ElementName=LogoImage, Path=Source}" Value="{x:Null}" />
+                                                                    <Condition Binding="{Binding ElementName=LogoImageLeft, Path=Source}" Value="{x:Null}" />
+                                                                    <Condition Binding="{Binding ElementName=LogoImageRight, Path=Source}" Value="{x:Null}" />
+                                                                </MultiDataTrigger.Conditions>
+                                                                <Setter Property="Visibility" Value="{DynamicResource TitleTextVisibility}"/>
+                                                            </MultiDataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
                                             <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"
                                                         HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
                                                 <Label Content="&#x0035;" FontFamily="Marlett"/>
@@ -361,7 +417,7 @@
                                                                 </Grid.ColumnDefinitions>
                                                                 <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="0"/>
                                                                 <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0">
-                                                                    <Image Name="PART_ImageIcon" Height="32" Width="32" SnapsToDevicePixels="True"
+                                                                    <Image Visibility="Collapsed" Name="PART_ImageIcon" Height="32" Width="32" SnapsToDevicePixels="True"
                                                                Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                                StretchDirection="DownOnly" RenderOptions.BitmapScalingMode="Fant"/>
                                                                     <TextBlock Foreground="{DynamicResource TextBrush}" Tag="{DynamicResource LOCGameDescriptionTitle}"
@@ -415,7 +471,7 @@
                                         <Grid.Resources>
                                             <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                                                 <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}"/>
-                                                <Setter Property="TextOptions.TextRenderingMode" Value="Aliased" />
+                                                <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
                                                 <Setter Property="Margin" Value="1,0,0,0"/>
                                                 <Setter Property="MinWidth" Value="40"/>
                                                 <Setter Property="Background" Value="Transparent"/>
@@ -451,10 +507,11 @@
                                                 </Style>
                                                 <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                                     <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}"/>
-                                                    <Setter Property="FontFamily" Value="{DynamicResource SymbolFont}"/>
                                                     <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}"/>
+                                                    <Setter Property="FontFamily" Value="{DynamicResource SymbolFont}"/>
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
-                                                    <Setter Property="Margin" Value="20,0,10,0" />
+                                                    <Setter Property="Margin" Value="20,0,5,0" />
+                                                    <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
                                                 </Style>
                                                 <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -467,7 +524,7 @@
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Tag="{DynamicResource Htlb_EnableIntegrationInCustomTheme}">
                                                 <StackPanel Orientation="Horizontal" Tag="{DynamicResource Htlb_HasData}" ToolTip="{DynamicResource LOCHowLongToBeat}">
-                                                    <Label Content="&#x23F1;" FontFamily="{DynamicResource SymbolFont}"/>
+                                                    <Label Content="&#x23F1;"/>
                                                     <TextBlock Text="{DynamicResource Htlb_TimeToBeatFormat}"/>
                                                     <StackPanel.Style>
                                                         <Style>
@@ -495,10 +552,29 @@
                                                 <Label Name="PART_ElemLastPlayed" Content="&#xE163;"/>
                                                 <TextBlock Name="PART_TextLastActivity"/>
                                             </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Tag="{DynamicResource Sc_HasData}"
+                                                ToolTip="{DynamicResource LOCCommonLinksAchievements}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="true">
+                                                                <Setter Property="Control.Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+                                                <Label Content="&#x1F396;"/>
+                                                <TextBlock Text="{DynamicResource Sc_UnlockedString}" Margin="0"/>
+                                                <TextBlock Text=" / " Margin="0"/>
+                                                <TextBlock Text="{DynamicResource Sc_TotalString}"/>
+                                            </StackPanel>
                                             <StackPanel Orientation="Horizontal" ToolTip="{DynamicResource LOCCompletionStatus}">
                                                 <Label Name="PART_ElemCompletionStatus" Content="&#xE10B;"/>
                                                 <TextBlock Name="PART_TextCompletionStatus"/>
                                             </StackPanel>
+                                            <Label Content="&#xef25;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" Margin="20,0,20,0"
+                                                   Visibility="{Binding Game.Favorite, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">

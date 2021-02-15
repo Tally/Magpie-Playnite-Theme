@@ -60,9 +60,13 @@
                                 </TextBlock.Style>
                             </TextBlock>
                             <StackPanel Margin="0" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
-                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D8;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,5,10,5"/>
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D8;"
+                                       Foreground="{DynamicResource TextBrushDarker}" Margin="10,5,10,5"
+                                       TextOptions.TextRenderingMode="Aliased"/>
                                 <SliderWithPopup x:Name="PART_SliderZoom" />
-                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D9;" Foreground="{DynamicResource TextBrushDarker}" Margin="10,5,10,5"/>
+                                <Label FontFamily="{DynamicResource SymbolFont}" Content="&#xE1D9;"
+                                       Foreground="{DynamicResource TextBrushDarker}" Margin="10,5,10,5"
+                                       TextOptions.TextRenderingMode="Aliased"/>
                                 <StackPanel.Effect>
                                     <DropShadowEffect ShadowDepth="0"
                                                          Color="Black"
