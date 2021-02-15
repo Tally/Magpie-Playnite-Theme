@@ -11,7 +11,10 @@
                     <ExpanderEx BorderThickness="0" SaveGameGroupId="{Binding Name, Mode=OneWay}"
                                 IsExpanded="True">
                         <ExpanderEx.Header>
-                            <Grid HorizontalAlignment="Stretch" Margin="0">
+                            <Grid HorizontalAlignment="Stretch" Margin="0" Background="Transparent">
+                                <Grid.ContextMenu>
+                                    <GameGroupMenu />
+                                </Grid.ContextMenu>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
