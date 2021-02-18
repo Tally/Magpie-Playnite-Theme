@@ -31,8 +31,8 @@
                                   WindowChrome.IsHitTestVisibleInChrome="True"
                                          VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <Button Style="{DynamicResource GlyphButton}"
-                                     Content="&#x2261;" FontFamily="{DynamicResource SymbolFont}" FontSize="42"
-                                     Margin="0,-18,0,-8" BorderThickness="0" />
+                                     Content="&#x2630;" FontFamily="{DynamicResource SymbolFont}" FontSize="30"
+                                     Margin="0,0,0,4" BorderThickness="0" />
                                 </Border>
                                 <SearchBox x:Name="PART_TextMainSearch"
                                         Margin="20,6,0,6" DockPanel.Dock="Left"

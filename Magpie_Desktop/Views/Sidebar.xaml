@@ -13,12 +13,10 @@
                         <DockPanel x:Name="DockContentHolder">
                             <Border x:Name="PART_ElemMainMenu" Background="Transparent"
                                     Width="44" Height="44" Margin="0,0,0,5"
-                                    DockPanel.Dock="Top" Padding="5" Cursor="Hand"
+                                    DockPanel.Dock="Top" Cursor="Hand"
                                     WindowChrome.IsHitTestVisibleInChrome="True">
-                                <Viewbox>
-                                    <Label Content="&#x2261;" FontFamily="{DynamicResource SymbolFont}"
-                                           FontSize="48" Margin="0,-18,0,-8"/>
-                                </Viewbox>
+                                    <Button Content="&#x2630;" Style="{DynamicResource GlyphButton}"
+                                           HorizontalAlignment="Center" FontSize="30" Margin="0,0,0,4"/>
                             </Border>
 
                             <ItemsControl x:Name="PART_ListSideBarItems"

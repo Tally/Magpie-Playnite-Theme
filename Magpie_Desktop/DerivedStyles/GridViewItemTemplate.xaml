@@ -5,8 +5,6 @@
                     mc:Ignorable="d">
 
     <Style x:Key="GridViewItemTemplate" TargetType="{x:Type GameListItem}">
-        <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GameListItem}">
@@ -35,12 +33,12 @@
                                         <SolidColorBrush Color="{DynamicResource PopupBackgroundColor}" Opacity="0.7"/>
                                     </Border.Background>
                                     <Viewbox MaxHeight="50" MinHeight="20">
-                                        <StackPanel Orientation="Horizontal" Cursor="Hand">
-                                            <Button Name="PART_ButtonPlay" Style="{DynamicResource GlyphButton}"
-                                                    Margin="4,0,4,0" Content="&#xE102;"
+                                        <StackPanel Orientation="Horizontal" Cursor="Hand" Margin="0,0,0,1">
+                                                <Button Name="PART_ButtonPlay" Style="{DynamicResource GlyphButton}"
+                                                    Margin="4,0,4,0" Content="&#x25B6;"
                                                     FontFamily="{DynamicResource SymbolFont}" />
-                                            <Button Name="PART_ButtonInfo" Style="{DynamicResource GlyphButton}"
-                                                    Margin="4,0,4,0" Content="&#x24D8;"
+                                                <Button Name="PART_ButtonInfo" Style="{DynamicResource GlyphButton}"
+                                                    Margin="4,0,4,0" Content="&#x1F6C8;"
                                                     FontFamily="{DynamicResource SymbolFont}"/>
                                         </StackPanel>
                                     </Viewbox>
