@@ -2,7 +2,7 @@ ThemeApiVersion: 1.9.0
 Id: Magpie_Desktop
 Name: Magpie
 Author: Dan Davis
-Version: 1.0.0
+Version: 1.0.0.1
 Constants:
   - BGModeOn: Off for banners on for backgrounds in details.
   - GridFavoriteHighlight: Colored border and glow for favorites in grid view.

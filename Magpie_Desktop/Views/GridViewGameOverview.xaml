@@ -479,7 +479,31 @@
                                                                         </Style.Triggers>
                                                                     </Style>
                                                                 </StackPanel.Style>
-                                                                <Label Content="&#x1F396;"/>
+                                                                <Label Content="&#x1F396;" Tag="{DynamicResource Sc_PercentageUnlocked}">
+                                                                    <Label.Style>
+                                                                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                                            <Setter Property="VerticalAlignment" Value="Top"/>
+                                                                            <Setter Property="MinWidth" Value="30"/>
+                                                                            <Setter Property="Margin" Value="0,0,5,10" />
+                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}"/>
+                                                                            <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}" />
+                                                                            <Setter Property="FontFamily" Value="{DynamicResource SymbolFont}"/>
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="100">
+                                                                                    <Setter Property="Foreground" Value="Gold"/>
+                                                                                    <Setter Property="Effect">
+                                                                                        <Setter.Value>
+                                                                                            <DropShadowEffect ShadowDepth="0" Color="Gold"
+                                                                                  Opacity=".5" BlurRadius="10"/>
+                                                                                        </Setter.Value>
+                                                                                    </Setter>
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Label.Style>
+                                                                </Label>
                                                                 <TextBlock Tag="{DynamicResource Sc_PercentageUnlocked}" MinWidth="75" Margin="0,0,10,10">
                                                                     <Run Text="{DynamicResource Sc_UnlockedString}"/>
                                                                     <Run Text=" / "/>
