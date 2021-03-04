@@ -43,7 +43,7 @@
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource BackgroundToneColor}" />
     <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7 "/>
-    <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="1"/>
+    <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="0.7"/>
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
 
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
@@ -72,7 +72,9 @@
     <sys:String x:Key="ExtraMetadataPath">..\..\..\..</sys:String>
     <sys:String x:Key="AboutGameText">About the Game</sys:String>
     <sys:Boolean x:Key="BGModeOn">false</sys:Boolean>
-    
+    <sys:Boolean x:Key="GridFavoriteHighlight">true</sys:Boolean>
+
+    <SolidColorBrush x:Key="FavoriteColorBrush" Color="{DynamicResource FavoriteColor}"/>
     <sys:Double x:Key="ControlCornerRadiusDouble">0</sys:Double>
     <sys:Double x:Key="GroupSeparatorOpacity">1</sys:Double>
     <FontFamily x:Key="SymbolFont">seguisym.ttf#Segoe UI Symbol</FontFamily>
@@ -86,19 +88,21 @@
     <Color x:Key="ContextButtonHighlightColor">#5C63BB</Color>
     <Color x:Key="ClearFilterButtonColor">#e34141</Color>
     <Color x:Key="PopupBackgroundTransparent">#00121212</Color>
+    <Color x:Key="FavoriteColor">Goldenrod</Color>
 
-    <SolidColorBrush x:Key="CoverHighlightBrush" Color="#20FFFFFF" />
+    <SolidColorBrush x:Key="CoverHighlightBrush" Color="#10FFFFFF" />
 
     <Color x:Key="NormalBorderColor">#282828</Color>
     <SolidColorBrush x:Key="TitlebarBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity="0.7"/>
-    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="{DynamicResource MainColorDark}" />
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="{DynamicResource MainColorDark}"/>
     <SolidColorBrush x:Key="DetailsButtonBrush" Color="{DynamicResource HoverColor}" Opacity=".7"/>
     <SolidColorBrush x:Key="ButtonBorderBrush" Color="{DynamicResource ButtonBackgroundColor}" Opacity="1"/>
-    <SolidColorBrush x:Key="HoverBorderBrush" Color="{DynamicResource HoverColor}" Opacity="1" />
-    <SolidColorBrush x:Key="ButtonFocusBorderBrush" Color="{DynamicResource HoverColor}" Opacity="1" />
-    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity="0.7" />
-    <SolidColorBrush x:Key="DetailsPanelBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity="0.7" />
-    <SolidColorBrush x:Key="DetailsViewGroupTextBrush" Color="{DynamicResource GlyphColor}" />
+    <SolidColorBrush x:Key="HoverBorderBrush" Color="{DynamicResource HoverColor}" Opacity="1"/>
+    <SolidColorBrush x:Key="ButtonFocusBorderBrush" Color="{DynamicResource HoverColor}" Opacity="1"/>
+    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity="0.7"/>
+    <SolidColorBrush x:Key="GridDetailsDrawerBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity="0.9"/>
+    <SolidColorBrush x:Key="DetailsPanelBrush" Color="{DynamicResource PopupBackgroundColor}" Opacity="0.7"/>
+    <SolidColorBrush x:Key="DetailsViewGroupTextBrush" Color="{DynamicResource GlyphColor}"/>
 
     <SolidColorBrush x:Key="PlayButtonBrush" Color="{DynamicResource HoverColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="PlayBorderBrush" Color="{DynamicResource HoverColor}" Opacity="1" />

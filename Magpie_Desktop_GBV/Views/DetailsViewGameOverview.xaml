@@ -133,7 +133,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <FadeImage x:Name="PART_ImageBackground" Tag="{DynamicResource BGModeOn}"
-                                       Grid.Row="0" HorizontalAlignment="Stretch" RenderOptions.BitmapScalingMode="Fant">
+                                       Grid.Row="0" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="Fant">
                                 <FadeImage.Resources>
                                     <Style TargetType="Image">
                                         <Style.Triggers>
@@ -428,14 +428,10 @@
                             <Grid Name="ControlsBar" Grid.Column="1" Grid.Row="1" MaxWidth="{Binding ElementName=DetailsPanel, Path=ActualWidth}"
                                   HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="Transparent">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="{Binding ElementName=DetailsLeftPanel, Path=ActualWidth}"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="{Binding ElementName=DetailsRightPanel, Path=ActualWidth}"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
                                 <Grid.Resources>
                                     <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                                         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}"/>
@@ -453,38 +449,34 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Grid.Resources>
-                                <StackPanel x:Name="ControlButtons" Grid.Column="0" Margin="20,0,0,0" Orientation="Horizontal" >
-                                    <Button Name="PART_ButtonPlayAction" Width="{Binding ElementName=PART_ImageCover, Path=ActualWidth}"
-                                            MinWidth="80" FontSize="{DynamicResource FontSizeLarger}" Style="{DynamicResource PlayButton}" />
-                                    <Button Name="PART_ButtonContextAction" Width="{Binding ElementName=PART_ImageCover, Path=ActualWidth}"
-                                            MinWidth="80" Style="{DynamicResource ContextButton}" FontSize="{DynamicResource FontSizeLarger}"/>
-                                    <Button Name="PART_ButtonMoreActions"
-                                                Content="&#xE10C;" FontFamily="{DynamicResource SymbolFont}"/>
-                                </StackPanel>
-                                <StackPanel Grid.Column="1" Orientation="Horizontal"
-                                                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="1"
+                                           MaxWidth="{Binding ElementName=DetailsMiddle, Path=ActualWidth}" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <StackPanel.Resources>
                                         <Style TargetType="StackPanel">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
+                                            <Setter Property="Orientation" Value="Horizontal"/>
                                         </Style>
-                                        <Style TargetType="Label" BasedOn="{StaticResource GlyphLabel}">
+                                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                             <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}"/>
                                             <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}"/>
+                                            <Setter Property="FontFamily" Value="{DynamicResource SymbolFont}"/>
                                             <Setter Property="VerticalAlignment" Value="Center"/>
                                             <Setter Property="Margin" Value="20,0,5,0" />
+                                            <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
                                         </Style>
                                         <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
                                             <Setter Property="VerticalAlignment" Value="Center"/>
                                             <Setter Property="Margin" Value="0,0,20,0"/>
+                                            <Setter Property="MinWidth" Value="75"/>
                                         </Style>
                                     </StackPanel.Resources>
-                                    <StackPanel Orientation="Horizontal" ToolTip="{DynamicResource LOCTimePlayed}">
+                                    <StackPanel ToolTip="{DynamicResource LOCTimePlayed}">
                                         <Label Name="PART_ElemPlayTime" Content="&#x23F3;"/>
                                         <TextBlock Name="PART_TextPlayTime"/>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Tag="{DynamicResource Htlb_EnableIntegrationInCustomTheme}">
+                                    <StackPanel Tag="{DynamicResource Htlb_EnableIntegrationInCustomTheme}">
                                         <StackPanel Orientation="Horizontal" Tag="{DynamicResource Htlb_HasData}" ToolTip="{DynamicResource LOCHowLongToBeat}">
-                                            <Label Content="&#x23F1;" FontFamily="{DynamicResource SymbolFont}"/>
+                                            <Label Content="&#x23F1;"/>
                                             <TextBlock Text="{DynamicResource Htlb_TimeToBeatFormat}"/>
                                             <StackPanel.Style>
                                                 <Style>
@@ -508,7 +500,7 @@
                                             </Style>
                                         </StackPanel.Style>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" ToolTip="{DynamicResource LOCLastPlayed}">
+                                    <StackPanel ToolTip="{DynamicResource LOCLastPlayed}">
                                         <Label Name="PART_ElemLastPlayed" Content="&#xE163;"/>
                                         <TextBlock Name="PART_TextLastActivity"/>
                                     </StackPanel>
@@ -524,62 +516,118 @@
                                                 </Style.Triggers>
                                             </Style>
                                         </StackPanel.Style>
-                                        <Label Content="&#x1F396;"/>
-                                        <TextBlock Text="{DynamicResource Sc_UnlockedString}" Margin="0"/>
-                                        <TextBlock Text=" / " Margin="0"/>
-                                        <TextBlock Text="{DynamicResource Sc_TotalString}"/>
+                                        <Label Content="&#x1F396;" Tag="{DynamicResource Sc_PercentageUnlocked}">
+                                            <Label.Style>
+                                                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}"/>
+                                                    <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}"/>
+                                                    <Setter Property="FontFamily" Value="{DynamicResource SymbolFont}"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20,0,5,0" />
+                                                    <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="100">
+                                                            <Setter Property="Foreground" Value="Gold"/>
+                                                            <Setter Property="Effect">
+                                                                <Setter.Value>
+                                                                    <DropShadowEffect ShadowDepth="0" Color="Gold"
+                                                                                  Opacity=".5" BlurRadius="10"/>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Label.Style>
+                                        </Label>
+                                        <TextBlock Tag="{DynamicResource Sc_PercentageUnlocked}">
+                                            <Run Text="{DynamicResource Sc_UnlockedString}"/>
+                                            <Run Text=" / "/>
+                                            <Run Text="{DynamicResource Sc_TotalString}"/>
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="100">
+                                                            <Setter Property="Foreground" Value="Gold"/>
+                                                            <Setter Property="Effect">
+                                                                <Setter.Value>
+                                                                    <DropShadowEffect ShadowDepth="0" Color="Gold"
+                                                                                  Opacity=".5" BlurRadius="5"/>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" ToolTip="{DynamicResource LOCCompletionStatus}">
+                                    <StackPanel ToolTip="{DynamicResource LOCCompletionStatus}">
                                         <Label Name="PART_ElemCompletionStatus" Content="&#xE10B;"/>
                                         <TextBlock Name="PART_TextCompletionStatus"/>
                                     </StackPanel>
-                                    <Label Content="&#xef25;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" Margin="20,0,20,0"
-                                           Visibility="{Binding Game.Favorite, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                </StackPanel>
+
+                                <StackPanel x:Name="ControlButtons" Grid.Column="0" Margin="20,0,0,0" Orientation="Horizontal">
+                                    <Button Name="PART_ButtonPlayAction" Width="{Binding ElementName=PART_ImageCover, Path=ActualWidth}"
+                                            MinWidth="80" FontSize="{DynamicResource FontSizeLarger}" Style="{DynamicResource PlayButton}" />
+                                    <Button Name="PART_ButtonContextAction" Width="{Binding ElementName=PART_ImageCover, Path=ActualWidth}"
+                                            MinWidth="80" Style="{DynamicResource ContextButton}" FontSize="{DynamicResource FontSizeLarger}"/>
+                                    <Button Name="PART_ButtonMoreActions"
+                                                Content="&#xE10C;" FontFamily="{DynamicResource SymbolFont}"/>
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                                    <StackPanel Tag="{DynamicResource Htlb_EnableIntegrationInCustomTheme}">
-                                        <Button Name="PART_HltbCustomButton" Content="&#x23F1;" ToolTip="{DynamicResource LOCHowLongToBeat}"
+                                    <StackPanel Orientation="Horizontal">
+                                        <Grid Tag="{DynamicResource Htlb_EnableIntegrationInCustomTheme}">
+                                            <Button Name="PART_HltbCustomButton" Content="&#x23F1;" ToolTip="{DynamicResource LOCHowLongToBeat}"
                                                     FontFamily="{DynamicResource SymbolFont}"/>
-                                        <StackPanel.Style>
-                                            <Style TargetType="StackPanel">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"  Value="True">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </StackPanel.Style>
-                                    </StackPanel>
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"  Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
 
-                                    <StackPanel Tag="{DynamicResource Sc_EnableIntegrationInCustomTheme}">
-                                        <Button Name="PART_ScCustomButton" Content="&#x1F396;" ToolTip="SuccessStory"
+                                        <Grid Tag="{DynamicResource Sc_EnableIntegrationInCustomTheme}">
+                                            <Button Name="PART_ScCustomButton" Content="&#x1F396;" ToolTip="SuccessStory"
                                                     FontFamily="{DynamicResource SymbolFont}" />
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                        </Grid>
+
+                                        <Button x:Name="PART_ButtonEditGame" Margin="0" ToolTip="{DynamicResource LOCEditGame}"
+                                                FontFamily="{DynamicResource SymbolFont}" Content="&#xE104;"/>
                                         <StackPanel.Style>
                                             <Style TargetType="StackPanel">
-                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Setter Property="Visibility" Value="Hidden" />
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}"  Value="True">
                                                         <Setter Property="Visibility" Value="Visible" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
                                         </StackPanel.Style>
                                     </StackPanel>
-
-                                    <Button x:Name="PART_ButtonEditGame" Margin="0" ToolTip="{DynamicResource LOCEditGame}"
-                                                FontFamily="{DynamicResource SymbolFont}" Content="&#xE104;"/>
-                                    <StackPanel.Style>
-                                        <Style TargetType="StackPanel">
-                                            <Setter Property="Visibility" Value="Hidden" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}"  Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                    <Label Content="&#xef25;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource FavoriteColorBrush}" Margin="20,0,20,0"
+                                           Visibility="{Binding Game.Favorite, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="{DynamicResource FontSizeLarger}">
+                                        <Label.Effect>
+                                            <DropShadowEffect ShadowDepth="0" Color="{DynamicResource FavoriteColor}"
+                                                              Opacity="1" BlurRadius="5"/>
+                                        </Label.Effect>
+                                    </Label>
                                 </StackPanel>
                             </Grid>
 
@@ -759,7 +807,7 @@
                                         </GridEx>
                                     </StackPanel>
 
-                                    <StackPanel Margin="0" DockPanel.Dock="Top">
+                                    <StackPanel Margin="0" DockPanel.Dock="Top" Name="DetailsMiddle">
                                         <StackPanel.Resources>
                                             <Style TargetType="ScrollBar" BasedOn="{StaticResource {x:Type ScrollBar}}">
                                                 <Setter Property="Margin" Value="0"/>

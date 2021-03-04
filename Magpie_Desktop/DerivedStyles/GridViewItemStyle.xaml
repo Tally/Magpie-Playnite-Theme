@@ -13,9 +13,35 @@
                           Margin="{Settings ItemSpacingMargin}"
                           x:Name="ItemGrid">
                         <StackPanel Orientation="Vertical">
-                            <Border x:Name="SelectionBorder" Padding="{Settings GridItemMargin}"
-                                    BorderBrush="{DynamicResource GridItemBackgroundBrush}"
-                                    Background="{DynamicResource GridItemBackgroundBrush}">
+                            <Border x:Name="SelectionBorder" Padding="{Settings GridItemMargin}" Tag="{DynamicResource GridFavoriteHighlight}">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderBrush" Value="{DynamicResource GridItemBackgroundBrush}"/>
+                                        <Setter Property="Background" Value="{DynamicResource GridItemBackgroundBrush}"/>
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect ShadowDepth="0" Color="Black"
+                                                                  Opacity=".5" BlurRadius="10"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="true"/>
+                                                    <Condition Binding="{Binding Favorite}" Value="true"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="BorderBrush" Value="{DynamicResource FavoriteColorBrush}"/>
+                                                <Setter Property="Background" Value="{DynamicResource FavoriteColorBrush}"/>
+                                                <Setter Property="Effect">
+                                                    <Setter.Value>
+                                                        <DropShadowEffect ShadowDepth="0" Color="{DynamicResource FavoriteColor}"
+                                                                  Opacity=".75" BlurRadius="10"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
                                 <ContentPresenter>
                                     <ContentPresenter.OpacityMask>
                                         <DrawingBrush x:Name="CoverMask" RenderOptions.CachingHint="Cache">
@@ -46,12 +72,6 @@
                                         </DrawingBrush.Drawing>
                                     </DrawingBrush>
                                 </Border.OpacityMask>
-                                <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="0"
-                                              Color="Black"
-                                              Opacity=".5"
-                                              BlurRadius="10"/>
-                                </Border.Effect>
                             </Border>
                             <Border MaxHeight="60">
                                 <TextBlock Text="{Binding DisplayName}"

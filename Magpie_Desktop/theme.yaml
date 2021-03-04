@@ -2,9 +2,12 @@ ThemeApiVersion: 1.9.0
 Id: Magpie_Desktop
 Name: Magpie
 Author: Dan Davis
-Version: 0.9.5
+Version: 1.0.0
 Constants:
   - BGModeOn: Off for banners on for backgrounds in details.
+  - GridFavoriteHighlight: Colored border and glow for favorites in grid view.
+  - FavoriteColor: Color of glow favorites' border and star.
+  - FavoriteColorBrush: Color of favorites' border and star.
   - UseAbsoluteExtraMetadataPath: Use absolute path to your Playnite config folder.
   - ExtraMetadataPath: That path; no ending backslash.
   - DetailsViewPanelWidth(640,2560): Width of main details view panel.
