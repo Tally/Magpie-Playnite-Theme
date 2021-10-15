@@ -814,65 +814,42 @@
                                             </Style>
                                         </StackPanel.Resources>
                                         <StackPanel Margin="0" >
-                                            <StackPanel Margin="0" Tag="{DynamicResource Sc_EnableIntegrationInCustomTheme}">
+                                            <StackPanel Margin="0,0,0,20" x:Name="___SuccessStory_StackPanel_" Visibility="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}">
                                                 <StackPanel.Style>
-                                                    <Style TargetType="StackPanel">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style>
+                                                        <Setter Property="UIElement.Visibility" Value="Visible" />
                                                         <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                                                                <Setter Property="UIElement.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
+                                                                <Setter Property="UIElement.Visibility" Value="Collapsed" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </StackPanel.Style>
-                                                <StackPanel Margin="0,0,0,20" Tag="{DynamicResource Sc_HasData}">
-                                                    <StackPanel.Style>
-                                                        <Style>
-                                                            <Setter Property="Control.Visibility" Value="Visible" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
-                                                                    <Setter Property="Control.Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                                    <Setter Property="Control.Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </StackPanel.Style>
-                                                    <StackPanel.Resources>
-                                                        <Style TargetType="StackPanel">
-                                                            <Setter Property="MaxWidth" Value="720"/>
-                                                        </Style>
-                                                    </StackPanel.Resources>
-                                                    <Grid HorizontalAlignment="Stretch" Margin="0,0,0,20" >
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="*"/>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                            <ColumnDefinition Width="*"/>
-                                                        </Grid.ColumnDefinitions>
-                                                        <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="0"/>
-                                                        <TextBlock Text="{DynamicResource LOCCommonLinksAchievements}" Margin="10,0,10,0"
+
+                                                <Grid HorizontalAlignment="Stretch" Margin="0,0,0,20" >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="0"/>
+                                                    <TextBlock Text="{DynamicResource LOCCommonLinksAchievements}" Margin="10,0,10,0"
                                                                        Grid.Column="1" Foreground="{DynamicResource TextBrush}"
                                                                        FontSize="{DynamicResource FontSizeLarger}" FontFamily="{DynamicResource FontFamily}"
                                                                        Typography.Capitals="SmallCaps" FontWeight="SemiBold" />
-                                                        <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="2"/>
-                                                    </Grid>
-                                                    <StackPanel Name="PART_Achievements_Graphics"/>
+                                                    <Separator Margin="0" Background="{DynamicResource HoverBrush}" Grid.Column="2"/>
+                                                </Grid>
 
-                                                    <StackPanel Name="PART_Achievements_ProgressBar"/>
-
-                                                    <StackPanel Name="PART_Achievements_ListComptact"/>
-
-                                                    <StackPanel Name="PART_Achievements_ListCompactUnlocked"/>
-
-                                                    <StackPanel Name="PART_Achievements_ListCompactLocked"/>
-
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <StackPanel Name="PART_Achievements_List"/>
-
-                                                        <StackPanel Name="PART_ScUserStats"/>
-                                                    </StackPanel>
-                                                </StackPanel>
+                                                <ContentControl x:Name="SuccessStory_PluginChart" />
+                                                <ContentControl x:Name="SuccessStory_PluginProgressBar" />
+                                                <ContentControl x:Name="SuccessStory_PluginCompactList" />
+                                                <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" />
+                                                <ContentControl x:Name="SuccessStory_PluginCompactLocked" />
+                                                <ContentControl x:Name="SuccessStory_PluginList" />
+                                                <ContentControl x:Name="SuccessStory_PluginUserStats" />
                                             </StackPanel>
                                             <StackPanel Name="PART_ElemDescription" Margin="0,0,0,20">
                                                 <Grid HorizontalAlignment="Stretch" Margin="0,0,0,20" >
