@@ -338,13 +338,13 @@
 
                                                         <Label Name="PART_ElemPlatform" Content="&#xEA32;" FontFamily="{DynamicResource FontIcoFont}"
                                                    ToolTip="{DynamicResource LOCPlatformTitle}"/>
-                                                        <Button Name="PART_ButtonPlatform"/>
+                                                        <ItemsControl Name="PART_ItemsPlatforms"/>
 
                                                         <Label Name="PART_ElemReleaseDate" Content="&#x1F382;" ToolTip="{DynamicResource LOCGameReleaseDateTitle}"/>
                                                         <Button Name="PART_ButtonReleaseDate"/>
 
                                                         <Label Name="PART_ElemSeries" Content="&#xE158;" ToolTip="{DynamicResource LOCSeriesLabel}"/>
-                                                        <Button Name="PART_ButtonSeries"/>
+                                                        <ItemsControl Name="PART_ItemsSeries"/>
 
                                                         <Label Name="PART_ElemDevelopers" Content="&#xE144;" ToolTip="{DynamicResource LOCDeveloperLabel}"/>
                                                         <ItemsControl Name="PART_ItemsDevelopers" />
@@ -353,10 +353,10 @@
                                                         <ItemsControl Name="PART_ItemsPublishers" />
 
                                                         <Label Name="PART_ElemAgeRating" Content="&#x26D4;" ToolTip="{DynamicResource LOCAgeRatingLabel}"/>
-                                                        <Button Name="PART_ButtonAgeRating" />
+                                                        <ItemsControl Name="PART_ItemsAgeRatings" />
 
                                                         <Label Name="PART_ElemRegion" Content="&#xE128;" ToolTip="{DynamicResource LOCRegionLabel}"/>
-                                                        <Button Name="PART_ButtonRegion"/>
+                                                        <ItemsControl Name="PART_ItemsRegions"/>
 
                                                         <Label Name="PART_ElemCommunityScore" Content="&#xE125;" ToolTip="{DynamicResource LOCCommunityScore}"/>
                                                         <TextBlock Name="PART_TextCommunityScore" VerticalAlignment="Center"
@@ -604,7 +604,7 @@
                                             </StackPanel>
                                             <StackPanel ToolTip="{DynamicResource LOCCompletionStatus}">
                                                 <Label Name="PART_ElemCompletionStatus" Content="&#xE10B;"/>
-                                                <TextBlock Name="PART_TextCompletionStatus"/>
+                                                <Button Name="PART_ButtonCompletionStatus"/>
                                             </StackPanel>
                                         </StackPanel>
 
