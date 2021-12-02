@@ -39,7 +39,7 @@
                                 </DockPanel>
                                 <Border BorderBrush="{DynamicResource PopupBorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        Background="Transparent" CornerRadius="0" Margin="-1"
+                                        CornerRadius="0" Margin="-1"
                                         IsHitTestVisible="False" Visibility="Visible"/>
                             </Grid>
                         </Border>

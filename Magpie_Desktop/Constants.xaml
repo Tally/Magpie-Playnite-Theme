@@ -8,10 +8,12 @@
     <sys:Double x:Key="FontSizeLarger">20</sys:Double>
     <sys:Double x:Key="FontSizeLargest">29</sys:Double>
     <FontFamily x:Key="FontFamily">Trebuchet MS</FontFamily>
+    <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius">0</CornerRadius>
+    <Thickness x:Key="SidebarItemPadding">8</Thickness>
 
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
@@ -28,6 +30,7 @@
     <Color x:Key="BackgroundToneColor">#202020</Color>
     <Color x:Key="GridItemBackgroundColor">#6c6c6c</Color>
     <Color x:Key="PanelSeparatorColor">#282828</Color>
+    <Color x:Key="WindowPanelSeparatorColor">#3355CDFF</Color>
 
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource MainColorDark}" Opacity="0.7" />
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
@@ -35,7 +38,7 @@
     <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
     <SolidColorBrush x:Key="NormalBrush" Color="{DynamicResource MainColor}" />
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDark}" />
-    <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource ButtonBackgroundColor}"/>
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource ButtonBackgroundColor}" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource HoverColor}"/>
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
@@ -44,7 +47,9 @@
     <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}"/>
     <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7 "/>
     <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" Opacity="0.7"/>
+    <SolidColorBrush x:Key="WindowPanelSeparatorBrush" Color="{DynamicResource WindowPanelSeparatorColor}" />
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
+    <SolidColorBrush x:Key="CheckBoxCheckMarkBkBrush" Color="{DynamicResource MainColorDark}" />
 
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
     <SolidColorBrush x:Key="NegativeRatingBrush" Color="#ff6b6b" />

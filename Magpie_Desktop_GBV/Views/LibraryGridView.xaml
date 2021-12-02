@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     mc:Ignorable="d">
 
     <Style TargetType="{x:Type LibraryGridView}">
@@ -15,6 +15,10 @@
                                               Height="{Settings GrdiDetailsWitdh}"
                                               DockPanel.Dock="Top" />
                         <Grid DockPanel.Dock="Bottom">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
@@ -31,6 +35,9 @@
                                         <GameListItem Style="{StaticResource GridViewItemTemplate}" />
                                     </DataTemplate>
                                 </ExtendedListBox.ItemTemplate>
+                                <ExtendedListBox.GroupStyle>
+                                    <GroupStyle ContainerStyle="{StaticResource GridViewGroupStyle}"/>
+                                </ExtendedListBox.GroupStyle>
                                 <ExtendedListBox.Resources>
                                     <Style TargetType="ScrollBar" BasedOn="{StaticResource {x:Type ScrollBar}}">
                                         <Setter Property="Margin" Value="0,20,0,20"/>
